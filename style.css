@@ -3,35 +3,37 @@
 body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    /* height: 100vh; */
 }
 
-.container {
-    display: flex;
+.hide {
+    display: none;
 }
 
 .navigator {
-    height: 95vh;
-    background-color: aquamarine;
-    width: 15%;
-    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 60px;
+    background-color: #596353;
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    left: 0;
+    /* Stay at the left */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
+    overflow-x: hidden;
 }
 
-.navigator .home-navigation {
-    /* background-color: black; */
-    width: 85%;
-    height: 10%;
-    border-bottom: 5px solid black;
-    /* padding-bottom: 30px; */
-    padding-left: 10%;
-}
-
-.navigator .home-navigation:hover {}
-
-.navigator .icon-navigation {
-    /* background-color: green; */
-    width: 85%;
-    height: 85vh;
-    padding-left: 10%;
+.tabcontent {
+    display: flex;
+    flex-direction: column;
 }
 
 .tablinks {
@@ -39,47 +41,158 @@ body {
 }
 
 .icon-nav {
-    margin-right: 10px;
-    width: 5vw;
+    margin-right: 30px;
+    width: 25px;
     /* background-color: aliceblue; */
 }
 
 .text-nav {
     /* background-color: aqua; */
     text-align: left;
-    width: 5vw;
+    width: 150px;
     font-family: 'Montserrat';
     font-weight: 700;
     /* padding-right: 15% */
 }
 
 .main-content {
-    height: 95vh;
-    width: 80%;
+    /* height: 95vh; */
+    margin-left: 70px;
 }
 
-li {
-    width: 15vw;
-    height: 7vh;
-    margin-bottom: 20px;
-    list-style: none;
-    padding: 10%;
-    font-size: 1em;
-    margin-left: -5vw;
+#myContent {
+    transition: margin-left .5s;
 }
 
-li button {
+button {
     background-color: transparent;
     border: none;
-    width: 95%;
-    height: 90%;
-    padding-top: 5%;
+    padding: 20px 15px;
+    font-size: medium;
+    display: block;
+    transition: 0.3s;
 }
 
 button:hover {
-    background-color: #ddd;
+    background-color: #6D94C4;
 }
 
 button.active {
-    background-color: #ccc;
+    background-color: #6D94C4;
+}
+
+/* dashboard */
+.main-top-dashboard {
+    width: 100%;
+    /* background-color: red; */
+}
+
+.battery-indikator {
+    width: 100%;
+    /* background-color: blue; */
+}
+
+.battery-selection {
+    margin-left: 10px;
+    height: 5vh;
+}
+
+.chart-section {
+    width: 100%;
+    /* background-color: green; */
+}
+
+.chart-section .dropdown-battery-list {
+    height: 5vh;
+    width: 100%;
+}
+
+/* battery indikator  */
+.animated-progress {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    margin: 20px 10px;
+    border: 1px solid rgb(189, 113, 113);
+    overflow: hidden;
+    position: relative;
+}
+
+.animated-progress span {
+    height: 100%;
+    display: block;
+    width: 0;
+    color: rgb(255, 251, 251);
+    line-height: 30px;
+    position: absolute;
+    text-align: end;
+    padding-right: 5px;
+}
+
+.progress-blue span {
+    background-color: blue;
+}
+
+.progress-green span {
+    background-color: green;
+}
+
+.progress-purple span {
+    background-color: indigo;
+}
+
+.progress-red span {
+    background-color: red;
+}
+
+/* DROPDOWN BUTTON  */
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+}
+
+.dropdown button:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+.box {
+    padding: 20px;
+    display: none;
+    margin-top: 20px;
 }
