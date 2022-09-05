@@ -26,11 +26,6 @@ button:hover {
 
 /* Create an active/current tablink class */
 
-button.active {
-  background-color: #ccc;
-}
-
-
 /* Style the tab content */
 
 .tabcontent {
