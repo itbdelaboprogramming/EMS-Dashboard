@@ -4,25 +4,24 @@ $user = 'itbdelabo';
 $pass = 'delabo0220';
 $database = 'monitoring';
 
-$connection = mysqli_connect($host, $user, $pass, $database);
+$connect = mysqli_connect($host, $user, $pass, $database);
 
-if (!$connection) {
-    echo "Connection to MYSQL is failed....";
+if (!$connect) {
+    echo "conection to MySQL is fail....";
 }
 ?>
 
 <?php
-$x_date  = mysqli_query($connection, 'SELECT time FROM ( SELECT * FROM cpu_temperature ORDER BY id DESC LIMIT 20) Var1 ORDER BY ID ASC');
-$y_temperature   = mysqli_query($connection, 'SELECT temperature FROM ( SELECT * FROM cpu_temperature ORDER BY id DESC LIMIT 20) Var1 ORDER BY ID ASC');
+$x_date  = mysqli_query($connect, 'SELECT time FROM ( SELECT * FROM cpu_temperature ORDER BY id DESC LIMIT 20) Var1 ORDER BY ID ASC');
+$y_temperature   = mysqli_query($connect, 'SELECT temperature FROM ( SELECT * FROM cpu_temperature ORDER BY id DESC LIMIT 20) Var1 ORDER BY ID ASC');
 ?>
-
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <div class="panel panel-primary">
     <div class="panel-body">
         <canvas id="myChart"></canvas>
         <script>
-            const labels = [<?php while ($b = mysqli_fetch_array($x_tanggal)) {
+            const labels = [<?php while ($b = mysqli_fetch_array($x_date)) {
                                 echo '"' . $b['time'] . '",';
                             }
                             ?>]
@@ -30,7 +29,7 @@ $y_temperature   = mysqli_query($connection, 'SELECT temperature FROM ( SELECT *
             const data = {
                 labels: labels,
                 datasets: [{
-                    label: 'temperature',
+                    label: 'Temperature',
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
                     data: [<?php while ($b = mysqli_fetch_array($y_temperature)) {
@@ -77,14 +76,14 @@ $y_temperature   = mysqli_query($connection, 'SELECT temperature FROM ( SELECT *
             <tbody>
                 <?php
                 $index = 1;
-                $sqlAdmin = mysqli_query($connection, "SELECT * FROM cpu_temperature ORDER BY ID DESC LIMIT 0,20");
+                $sqlAdmin = mysqli_query($connect, "SELECT * FROM cpu_temperature ORDER BY ID DESC LIMIT 0,20");
                 while ($data = mysqli_fetch_array($sqlAdmin)) {
 
                     echo "<tr >
-                <td><center>$index</center></td>
-                <td><center>$data[time]</center></td> 
-                <td><center>$data[temperature]</td>
-              </tr>";
+                            <td><center>$index</center></td>
+                            <td><center>$data[time]</center></td> 
+                            <td><center>$data[temperature]</td>
+                         </tr>";
                     $index++;
                 }
                 ?>
