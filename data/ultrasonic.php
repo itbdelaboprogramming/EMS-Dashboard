@@ -1,19 +1,19 @@
 <?php
 $host = '192.168.18.53';
 $user = 'itbdelabo';
-$pas = 'delabo0220';
+$pass = 'delabo0220';
 $database = 'monitoring';
 
-$konek = mysqli_connect($host, $user, $pas, $database);
+$connection = mysqli_connect($host, $user, $pass, $database);
 
-if (!$konek) {
-    echo "koneksi ke MYSQL gagal....";
+if (!$connection) {
+    echo "Connection to MYSQL is failed....";
 }
 ?>
 
 <?php
-$x_tanggal  = mysqli_query($konek, 'SELECT time FROM ( SELECT * FROM cpu_temperature ORDER BY id DESC LIMIT 20) Var1 ORDER BY ID ASC');
-$y_temperature   = mysqli_query($konek, 'SELECT temperature FROM ( SELECT * FROM cpu_temperature ORDER BY id DESC LIMIT 20) Var1 ORDER BY ID ASC');
+$x_date  = mysqli_query($connection, 'SELECT time FROM ( SELECT * FROM cpu_temperature ORDER BY id DESC LIMIT 20) Var1 ORDER BY ID ASC');
+$y_temperature   = mysqli_query($connection, 'SELECT temperature FROM ( SELECT * FROM cpu_temperature ORDER BY id DESC LIMIT 20) Var1 ORDER BY ID ASC');
 ?>
 
 
@@ -77,7 +77,7 @@ $y_temperature   = mysqli_query($konek, 'SELECT temperature FROM ( SELECT * FROM
             <tbody>
                 <?php
                 $index = 1;
-                $sqlAdmin = mysqli_query($konek, "SELECT * FROM cpu_temperature ORDER BY ID DESC LIMIT 0,20");
+                $sqlAdmin = mysqli_query($connection, "SELECT * FROM cpu_temperature ORDER BY ID DESC LIMIT 0,20");
                 while ($data = mysqli_fetch_array($sqlAdmin)) {
 
                     echo "<tr >
