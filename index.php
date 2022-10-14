@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./components/newNavbar.css">
 
     <script src="https://kit.fontawesome.com/1eef294ba4.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -20,11 +21,12 @@
     <script type="text/javascript" src="assets/js/mdb.min.js"></script> -->
 
     <title>Document</title>
+
 </head>
 
 <body>
     <?php
-    include('./components/navbar.php');
+    include('./components/newNavbar.php');
     ?>
 
     <div id="myContent" class="main-content" onmouseover="closeNav()">
