@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- <link rel="stylesheet" href="transition.css"> -->
-    <link rel="stylesheet" href="style.css">
+    <link href="style.css" rel="stylesheet" >
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/style.css" rel="stylesheet">
     <link rel="stylesheet" href="./components/newNavbar.css">
@@ -20,8 +20,7 @@
     <script type="text/javascript" src="assets/js/jquery-3.4.0.min.js"></script>
     <script type="text/javascript" src="assets/js/mdb.min.js"></script> -->
 
-    <title>Document</title>
-
+    <title>Energy Management System</title>
 </head>
 
 <body>
