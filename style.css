@@ -10,7 +10,18 @@ body {
     display: none;
 }
 
+.mainSideNav{
+    display: flex;
+}
+.buttonOpenNavigation{
+    width: 500px;
+    height: 100px;
+    background-color: red;
+    float: right;
+}
+
 .navigator {
+    float: left;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -26,7 +37,7 @@ body {
     /* Stay at the top */
     left: 0;
     /* Stay at the left */
-    transition: 0.5s;
+    /* transition: 0.5s; */
     /* 0.5 second transition effect to slide in the sidenav */
     overflow-x: hidden;
 }
@@ -37,7 +48,7 @@ body {
 }
 
 .tablinks {
-    display: flex;
+    /* display: flex; */
 }
 
 .icon-nav {
