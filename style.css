@@ -16,7 +16,7 @@ body {
 .buttonOpenNavigation{
     width: 500px;
     height: 100px;
-    background-color: red;
+    /* background-color: red; */
     float: right;
 }
 
@@ -153,7 +153,7 @@ button.active {
 }
 
 .progress-red span {
-    background-color: red;
+    /* background-color: red; */
 }
 
 /* DROPDOWN BUTTON  */

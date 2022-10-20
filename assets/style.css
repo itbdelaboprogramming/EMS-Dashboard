@@ -4,10 +4,12 @@ html {
   position: relative;
   min-height: 100%;
 }
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: 80px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -22,18 +24,34 @@ body {
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
-body > .container {
+body>.container {
   padding: 60px 15px 0;
 }
+
 .container .text-muted {
   margin: 20px 0;
 }
 
-.footer > .container {
+.footer>.container {
   padding-right: 15px;
   padding-left: 15px;
 }
 
 code {
   font-size: 80%;
+}
+
+/* PANEL SECTION */
+.panel-section {
+  display: flex;
+  justify-content: space-evenly;
+  width: 20vw;
+  height: 30vh;
+  /* background-color: red; */
+}
+
+.panel-section div {
+  width: 50%;
+  height: 100%;
+  background-color: aqua;
 }

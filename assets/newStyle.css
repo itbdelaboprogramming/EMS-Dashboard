@@ -1,0 +1,74 @@
+.home-section {
+    /* margin-top: 5vh; */
+    position: relative;
+    /* background: blue; */
+    min-height: 100vh;
+    /* top: 0; */
+    left: 78px;
+    width: calc(100% - 78px);
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+.tabcontent {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.date-section {
+    width: 10vw;
+    height: 3vh;
+    /* background-color: black; */
+    /* right: 100%; */
+    float: right;
+    /* padding-top: 20px; */
+    /* position: fixed; */
+    right: 0;
+    /* margin-top: 20%; */
+    /* margin-left: 20%; */
+    top: 0;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
+
+.title-panel-section {
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: 3vh;
+    width: 100%;
+    /* background-color: blueviolet; */
+    padding-top: auto;
+    /* bottom: 0; */
+    /* position: fixed; */
+}
+
+.title-panel-section div {
+    width: 50%;
+    height: 100%;
+}
+
+.panel-section {
+    /* position: fixed; */
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: 30vh;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.panel-section div {
+    width: 50%;
+    height: 100%;
+    border: 2px solid grey;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+.chart-section {
+    height: 65vh;
+    width: 100%;
+    background-color: green;
+}
