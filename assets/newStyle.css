@@ -68,7 +68,26 @@
 }
 
 .chart-section {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     height: 65vh;
     width: 100%;
-    background-color: green;
+    /* background-color: red; */
+}
+
+.title-chart-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: 3vh;
+    width: 100%;
+    padding-top: auto;
+    margin-bottom: 30px;
+}
+
+.title-chart-section div {
+    width: 5vw;
+    height: 100%;
+    /* background-color: red; */
 }
