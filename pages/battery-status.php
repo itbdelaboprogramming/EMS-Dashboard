@@ -17,31 +17,8 @@
         </div>
     </div>
     <div class="panel-section">
-        <div class="electrity"></div>
-        <div class="kwh">
-            <ul>
-                <li>Smart Plug 1</li>
-                <li>2</li>
-                <li>Smart Plug 2</li>
-                <li>4</li>
-                <li>Smart Plug 3</li>
-                <li>6</li>
-                <li>Smart Plug 4</li>
-                <li>y</li>
-                <li>Smart Plug 5</li>
-                <li>y</li>
-                <li>Smart Plug 6</li>
-                <li>y</li>
-                <li>Smart Plug 7</li>
-                <li>y</li>
-                <li>Smart Plug 8</li>
-                <li>y</li>
-                <li>Smart Plug 9</li>
-                <li>y</li>
-                <li>Smart Plug 10</li>
-                <li>y</li>
-            </ul>
-        </div>
+        <div id="electricity"></div>
+        <div class="kwh" id="kwh"></div>
         <div class="cost"></div>
         <div class="carbon"></div>
         <div class="status"></div>
@@ -94,8 +71,10 @@
         <div class="Batt-1" id="responsecontainer1"></div>
         <script>
             var refreshId = setInterval(function() {
-                $('#responsecontainer1').load('./data/ultrasonic.php');
-                // $('#responsecontainer2').load('./data/batt1.php');
+                // $('#responsecontainer1').load('./data/ultrasonic.php');
+                $('#responsecontainer1').load('./data/batt1.php');
+                $('#electricity').load('./data/electricity-component.php');
+                $('#kwh').load('./data/kwh-component.php');
             }, 1000);
         </script>
     </div>

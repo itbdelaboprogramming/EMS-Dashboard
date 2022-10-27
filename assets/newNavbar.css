@@ -12,7 +12,7 @@
   top: 0;
   height: 100%;
   width: 78px;
-  background: #11101D;
+  background: #041C32;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -131,7 +131,7 @@
 }
 .sidebar .bx-search:hover{
   background: #FFF;
-  color: #11101d;
+  color: #041C32;
 }
 .sidebar li a{
   display: flex;
@@ -141,7 +141,7 @@
   align-items: center;
   text-decoration: none;
   transition: all 0.4s ease;
-  background: #11101D;
+  background: #041C32;
 }
 .sidebar li a:hover{
   background: #FFF;
@@ -162,7 +162,7 @@
 .sidebar li a:hover .links_name,
 .sidebar li a:hover i{
   transition: all 0.5s ease;
-  color: #11101D;
+  color: #041C32;
 }
 .sidebar li i{
   height: 50px;
@@ -229,7 +229,7 @@
 }
 .home-section .text{
   /* display: inline-block; */
-  color: #11101d;
+  color: #041C32;
   font-size: 25px;
   font-weight: 500;
   /* margin: 18px */

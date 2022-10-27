@@ -1,3 +1,7 @@
+li{
+    list-style-type: none;
+}
+
 .home-section {
     /* margin-top: 5vh; */
     position: relative;
@@ -60,11 +64,52 @@
 }
 
 .panel-section div {
-    width: 50%;
+    width: 100%;
     height: 100%;
     border: 2px solid grey;
     border-radius: 5px;
     overflow-y: auto;
+}
+
+.electricity-status{
+    display: flex;
+    width: 200px;
+    font-size: small;
+    justify-content: space-between;
+    border: none !important;
+    border-bottom: 2px solid grey !important;
+    border-radius: 0 !important;
+    
+}
+
+.electricity-status div{
+    width:35%;
+    height: 10%;
+    border: none !important;
+    /* background-color: aqua; */
+    
+}
+
+/* PROGRESS BAR */
+.progress-bar-section{
+    border: none !important;
+    padding: 2%;
+
+}
+.progress-bar-section .background-bar{
+    width: 100%;
+    height: 20px;
+    background-color: grey;
+    border: none !important;
+    /* position: relative; */
+}
+.progress-bar-section .progress-bar{
+    border: none !important;
+    /* width: 50%; */
+    max-width: 100%;
+    height: 20px;
+    background-color: aqua;
+    margin-top: -20px;
 }
 
 .chart-section {
