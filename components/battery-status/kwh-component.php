@@ -1,7 +1,12 @@
 <?php
-$host = '192.168.18.53';
-$user = 'itbdelabo';
-$pass = 'delabo0220';
+// $host = '192.168.18.53';
+// $user = 'itbdelabo';
+// $pass = 'delabo0220';
+// $database = 'monitoring';
+
+$host = 'localhost';
+$user = 'root';
+$pass = '';
 $database = 'monitoring';
 
 $connect = mysqli_connect($host, $user, $pass, $database);

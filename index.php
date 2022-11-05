@@ -9,8 +9,9 @@
     <!-- IMPORT CSS SECTION -->
     <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
     <!-- <link href="assets/style.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="./assets/newNavbar.css">
-    <link rel="stylesheet" href="./assets/newStyle.css">
+    
+    <link rel="stylesheet" href="./assets/navbar.css">
+    <link rel="stylesheet" href="./assets/style.css">
 
     <!-- IMPORT SCRIPT SECTION -->
     <script src="https://kit.fontawesome.com/1eef294ba4.js" crossorigin="anonymous"></script>
@@ -22,11 +23,8 @@
 
 <body>
     <?php
-    include('./components/newNavbar.php');
+    include('./components/navbar.php');
     ?>
-    <div class="date-section">
-        <h5 id="dateSection"></h5>
-    </div>
 
     <section class="home-section">
         <?php
@@ -39,11 +37,6 @@
     </section>
 
     <!-- SCRIPT SECTION -->
-    <script>
-        var today = new Date();
-        today = parseInt(today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        document.getElementById("dateSection").innerHTML = today
-    </script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
 </body>

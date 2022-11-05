@@ -1,17 +1,8 @@
-<?php
-$host = '192.168.18.53';
-$user = 'itbdelabo';
-$pass = 'delabo0220';
-$database = 'monitoring';
 
-$connect = mysqli_connect($host, $user, $pass, $database);
-
-if (!$connect) {
-    echo "connectsi ke MYSQL gagal....";
-}
-?>
 
 <?php
+include('../database/config.php');
+
 $time  = mysqli_query($connect, 'SELECT time FROM tuya_smart_plug_1 WHERE voltage IS NOT NULL ORDER BY id DESC LIMIT 20');
 $voltage  = mysqli_query($connect, 'SELECT voltage FROM tuya_smart_plug_1 WHERE voltage IS NOT NULL ORDER BY id DESC LIMIT 20');
 // $current  = mysqli_query($connect, 'SELECT current FROM tuya_smart_plug_1 ORDER BY id DESC LIMIT 20');
