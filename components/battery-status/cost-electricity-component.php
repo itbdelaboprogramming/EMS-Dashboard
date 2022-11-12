@@ -1,19 +1,5 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$database = 'monitoring';
-
-// $host = '192.168.18.53';
-// $user = 'itbdelabo';
-// $pass = 'delabo0220';
-// $database = 'monitoring';
-
-$connect = mysqli_connect($host, $user, $pass, $database);
-
-if (!$connect) {
-    echo "connectsi ke MYSQL gagal....";
-}
+include('../../database/config.php');
 
 $time  = mysqli_query($connect, 'SELECT time FROM tuya_smart_plug_1 WHERE voltage IS NOT NULL ORDER BY id DESC LIMIT 20');
 
@@ -53,9 +39,6 @@ $cost_bar_8 = $row_8['total_cost']/5000;
 
 ?>
 
-<script>
-    console.log("PPP",<?php echo $cost_bar_1 ?>)
-</script>
 
 <ul>
     <li>

@@ -77,6 +77,7 @@
                 $('#kwh').load('./components/battery-status/kwh-component.php');
                 $('#cost').load('./components/battery-status/cost-electricity-component.php');
                 $('#carbon').load('./components/battery-status/carbon-component.php');
+                $('#status').load('./components/battery-status/status-component.php');
             }, 1000);
         </script>
     </div>

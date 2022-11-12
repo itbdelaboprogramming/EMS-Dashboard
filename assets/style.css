@@ -1,4 +1,6 @@
-li{
+
+
+li {
     list-style-type: none;
 }
 
@@ -71,7 +73,7 @@ li{
     overflow-y: auto;
 }
 
-.electricity-status{
+.electricity-status {
     display: flex;
     width: 200px;
     font-size: small;
@@ -79,31 +81,33 @@ li{
     border: none !important;
     border-bottom: 2px solid grey !important;
     border-radius: 0 !important;
-    
+
 }
 
-.electricity-status div{
-    width:35%;
+.electricity-status div {
+    width: 35%;
     height: 10%;
     border: none !important;
     /* background-color: aqua; */
-    
+
 }
 
 /* PROGRESS BAR */
-.progress-bar-section{
+.progress-bar-section {
     border: none !important;
     padding: 2%;
 
 }
-.progress-bar-section .background-bar{
+
+.progress-bar-section .background-bar {
     width: 100%;
     height: 20px;
     background-color: grey;
     border: none !important;
     /* position: relative; */
 }
-.progress-bar-section .progress-bar{
+
+.progress-bar-section .progress-bar {
     border: none !important;
     /* width: 50%; */
     max-width: 100%;
@@ -135,4 +139,11 @@ li{
     width: 5vw;
     height: 100%;
     /* background-color: red; */
+}
+.data_status li{
+    border-bottom: 2px solid grey;
+}
+
+.data_status .status_connection{
+    float: right;
 }
