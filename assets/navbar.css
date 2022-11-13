@@ -1,5 +1,8 @@
 /* Google Font Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+/* 
+Terang : #B7C7E1
+gelap : #041C32 */
 
 * {
   margin: 0;
@@ -14,7 +17,7 @@
   top: 0;
   height: 100%;
   width: 78px;
-  background: #041C32;
+  background: #B7C7E1;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -37,7 +40,7 @@
 }
 
 .sidebar .logo-details .logo_name {
-  color: #fff;
+  color: #041C32;
   font-size: 20px;
   font-weight: 600;
   opacity: 0;
@@ -67,7 +70,7 @@
 }
 
 .sidebar i {
-  color: #fff;
+  color: #B7C7E1;
   height: 60px;
   min-width: 50px;
   font-size: 28px;
@@ -75,9 +78,14 @@
   line-height: 60px;
 }
 
+.sidebar .logo-details i {
+  color: #041C32;
+}
+
 .sidebar .nav-list {
   margin-top: 20px;
   height: 100%;
+  color: #B7C7E1;
 }
 
 .sidebar li {
@@ -91,7 +99,7 @@
   top: -20px;
   left: calc(100% + 15px);
   z-index: 3;
-  background: #fff;
+  background: #041C32;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   padding: 6px 12px;
   border-radius: 4px;
@@ -117,7 +125,7 @@
 
 .sidebar input {
   font-size: 15px;
-  color: #FFF;
+  color: #041C32;
   font-weight: 400;
   outline: none;
   height: 50px;
@@ -244,7 +252,7 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  background: #1d1b31;
+  background: #B7C7E1;
   width: 100%;
   height: 60px;
   line-height: 60px;
@@ -264,7 +272,7 @@
 
 .home-section .text {
   /* display: inline-block; */
-  color: #041C32;
+  color: #B7C7E1;
   font-size: 25px;
   font-weight: 500;
   /* margin: 18px */

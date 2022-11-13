@@ -1,4 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
 
+* {
+    color: #3c404c;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 500;
+    background-color: #F4F6F8;
+    /* height: 100vh; */
+}
 
 li {
     list-style-type: none;
@@ -68,7 +79,7 @@ li {
 .panel-section div {
     width: 100%;
     height: 100%;
-    border: 2px solid grey;
+    border: 2px solid #B7C7E1;
     border-radius: 5px;
     overflow-y: auto;
 }
@@ -79,7 +90,7 @@ li {
     font-size: small;
     justify-content: space-between;
     border: none !important;
-    border-bottom: 2px solid grey !important;
+    border-bottom: 2px solid #B7C7E1 !important;
     border-radius: 0 !important;
 
 }
@@ -102,7 +113,7 @@ li {
 .progress-bar-section .background-bar {
     width: 100%;
     height: 20px;
-    background-color: grey;
+    background-color: #284ddf7e;
     border: none !important;
     /* position: relative; */
 }
@@ -112,7 +123,7 @@ li {
     /* width: 50%; */
     max-width: 100%;
     height: 20px;
-    background-color: aqua;
+    background-color: #284EDF;
     margin-top: -20px;
 }
 
@@ -140,10 +151,20 @@ li {
     height: 100%;
     /* background-color: red; */
 }
-.data_status li{
-    border-bottom: 2px solid grey;
+
+.data_status li {
+    border-bottom: 2px solid #B7C7E1;
 }
 
-.data_status .status_connection{
+.data_status .status_connection {
     float: right;
+}
+
+.hide {
+    display: none;
+}
+
+.batt-toggle {
+    border: 2px solid #B7C7E1;
+    border-radius: 5px;
 }
