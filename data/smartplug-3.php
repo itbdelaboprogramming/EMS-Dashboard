@@ -1,5 +1,3 @@
-
-
 <?php
 include('../database/config.php');
 
@@ -8,52 +6,52 @@ $voltage  = mysqli_query($connect, 'SELECT voltage FROM tuya_smart_plug_3 WHERE 
 
 ?>
 
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<div class="panel panel-primary">
-    <div class="panel-body">
-        <canvas id="myChart3"></canvas>
-        <script>
-            const labels = [<?php
-                            while ($b = mysqli_fetch_array($time)) {
-                                echo '"' . $b['time'] . '",';
-                            }
-                            ?>]
-
-            const data = {
-                labels: labels,
-                datasets: [{
-                    label: 'voltage',
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: [<?php
-                            while ($b = mysqli_fetch_array($voltage)) {
-                                echo  $b['voltage'] . ',';
-                            }
-                            ?>],
-                }]
-            };
-
-            const config = {
-                type: 'line',
-                data: data,
-                options: {
-                    plugins: {
-                        legend: {
-                            display: false
+<div class="panel panel-primary" style="height:50vh; width:90vw">
+    <canvas id="myChart3"></canvas>
+    <script>
+        const labels = [<?php
+                        while ($b = mysqli_fetch_array($time)) {
+                            echo '"' . $b['time'] . '",';
                         }
-                    },
-                    animation: false,
-                    interaction: {
-                        intersect: false,
-                    },
-                }
-            };
+                        ?>]
 
-            const myChart = new Chart(
-                document.getElementById('myChart3'),
-                config
-            );
-        </script>
-    </div>
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'voltage',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [<?php
+                        while ($b = mysqli_fetch_array($voltage)) {
+                            echo  $b['voltage'] . ',';
+                        }
+                        ?>],
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                animation: false,
+                interaction: {
+                    intersect: false,
+                },
+            }
+        };
+
+
+        const myChart = new Chart(
+            document.getElementById('myChart3'),
+            config
+        );
+    </script>
 </div>

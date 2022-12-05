@@ -2,18 +2,23 @@
     <div class="title-panel-section">
         <div class="electrity">
             <h5>Electricity Status</h5>
+            <h5 id="electricity-value" class="electricity-value"></h5>
         </div>
         <div class="kwh">
             <h5>kWh Electricity Status</h5>
+            <h5 id="kwh-value" class="kwh-value"></h5>
         </div>
         <div class="cost">
             <h5>Cost Electricity</h5>
+            <h5 id="cost-value" class="cost-value"></h5>
         </div>
         <div class="carbon">
             <h5>Carbon Footprint</h5>
+            <h5 id="carbon-value" class="carbon-value"></h5>
         </div>
         <div class="status">
             <h5>Data Communication Status</h5>
+            <h5 id="status-value" class="status-value"></h5>
         </div>
     </div>
     <div class="panel-section">
@@ -64,7 +69,7 @@
                 $('#cost').load('./components/battery-status/cost-electricity-component.php');
                 $('#carbon').load('./components/battery-status/carbon-component.php');
                 $('#status').load('./components/battery-status/status-component.php');
-            }, 1000);
+            }, 500);
         </script>
     </div>
 </div>

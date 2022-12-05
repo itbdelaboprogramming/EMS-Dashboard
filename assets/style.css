@@ -2,6 +2,7 @@
 
 * {
     color: #3c404c;
+
 }
 
 body {
@@ -131,10 +132,13 @@ li {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 65vh;
+    height: 50vh;
     width: 100%;
-    /* background-color: red; */
+    overflow: hidden;
+    /* background-color: #B7C7E1; */
 }
+
+
 
 .title-chart-section {
     display: flex;
@@ -167,4 +171,10 @@ li {
 .batt-toggle {
     border: 2px solid #B7C7E1;
     border-radius: 5px;
+}
+
+.value-component {
+    color: rgb(0, 0, 187);
+    float: right;
+    margin-right: 20px;
 }

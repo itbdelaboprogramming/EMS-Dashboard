@@ -19,6 +19,7 @@ function statusChanger($id, $voltage, $current, $statusId,)
                 <script>
                     let theNumber = "status-" + <?php echo "$statusId"; ?>;
                     document.getElementById(theNumber).innerHTML = "Online"
+                    document.getElementById(theNumber).style.color="green"
                 </script>
             <?php
             } else {
@@ -26,6 +27,7 @@ function statusChanger($id, $voltage, $current, $statusId,)
                 <script>
                     let theNumber = "status-" + <?php echo "$statusId"; ?>;
                     document.getElementById(theNumber).innerHTML = "Idle"
+                    document.getElementById(theNumber).style.color="rgb(225, 214, 0)"
                 </script>
             <?php
             }
@@ -34,6 +36,7 @@ function statusChanger($id, $voltage, $current, $statusId,)
             <script>
                 let theNumber = "status-" + <?php echo "$statusId"; ?>;
                 document.getElementById(theNumber).innerHTML = "Offline"
+                document.getElementById(theNumber).style.color="blue"
             </script>
     <?php
         }
