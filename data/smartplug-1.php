@@ -3,19 +3,31 @@ include('../database/config.php');
 
 $time  = mysqli_query($connect, 'SELECT time FROM tuya_smart_plug_1 WHERE voltage IS NOT NULL ORDER BY id DESC LIMIT 20');
 $voltage  = mysqli_query($connect, 'SELECT voltage FROM tuya_smart_plug_1 WHERE voltage IS NOT NULL ORDER BY id DESC LIMIT 20');
-
 ?>
-
-
+<script>
+    var dataset = [];
+    var newDataset = [];
+</script>
+<?php
+while ($b = mysqli_fetch_array($time)) {
+?>
+    <script>
+        dataset.push(<?php echo '"' . $b['time'] . '",'; ?>)
+    </script>
+<?php
+}
+?>
+<script>
+    dataset.forEach((score) => {
+        let newTimeFormat = score.split(":"); 
+        newDataset.push(`${newTimeFormat[0]}:${newTimeFormat[1]}`)
+    })
+</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <div class="panel panel-primary" style="height:50vh; width:90vw">
     <canvas id="myChart1"></canvas>
     <script>
-        const labels = [<?php
-                        while ($b = mysqli_fetch_array($time)) {
-                            echo '"' . $b['time'] . '",';
-                        }
-                        ?>]
+        const labels = newDataset;
 
         const data = {
             labels: labels,
@@ -39,7 +51,11 @@ $voltage  = mysqli_query($connect, 'SELECT voltage FROM tuya_smart_plug_1 WHERE 
                 maintainAspectRatio: false,
                 plugins: {
                     legend: {
-                        display: false
+                        display: true
+                    },
+                    title: {
+                        display: true,
+                        text: 'Realtime Energy Monitoring'
                     }
                 },
                 animation: false,
