@@ -2,14 +2,13 @@
 
 * {
     color: #3c404c;
-
+    font-size: 0.9vw;
 }
 
 body {
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 500;
     background-color: #F4F6F8;
-    /* height: 100vh; */
 }
 
 li {
@@ -17,11 +16,8 @@ li {
 }
 
 .home-section {
-    /* margin-top: 5vh; */
     position: relative;
-    /* background: blue; */
     min-height: 100vh;
-    /* top: 0; */
     left: 78px;
     width: calc(100% - 78px);
     transition: all 0.5s ease;
@@ -33,62 +29,28 @@ li {
     margin-left: 20px;
 }
 
-.date-section {
-    width: 10vw;
-    height: 3vh;
-    /* background-color: black; */
-    /* right: 100%; */
-    float: right;
-    /* padding-top: 20px; */
-    /* position: fixed; */
-    right: 0;
-    /* margin-top: 20%; */
-    /* margin-left: 20%; */
-    top: 0;
-    margin-bottom: 2vh;
-    margin-top: 2vh;
-}
-
-.title-panel-section {
-    /* position: relative; */
+.panel{
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    height: 3vh;
+    box-sizing: border-box;
+    gap: 1%;
     width: 100%;
-    /* background-color: blueviolet; */
-    padding-top: auto;
-    /* bottom: 0; */
-    /* position: fixed; */
+    margin-bottom: 5px;
 }
-
-.title-panel-section div {
-    width: 50%;
-    height: 100%;
+.panel-container-item{
+    border: 1px solid #3c404c;
+    flex: 20%;
+    border-radius: 5px !important;
 }
-
-.panel-section {
-    /* position: fixed; */
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    height: 30vh;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.panel-section div {
-    width: 100%;
-    height: 100%;
-    border: 2px solid #B7C7E1;
-    border-radius: 5px;
+.panel-section-data{
+    height: 30vh !important;
     overflow-y: auto;
+    border-top: 1px solid #000;
 }
 
 .electricity-status {
     display: flex;
-    width: 200px;
-    font-size: small;
+    width: 100%;
+    font-size: 0.9vw;
     justify-content: space-between;
     border: none !important;
     border-bottom: 2px solid #B7C7E1 !important;
@@ -97,12 +59,21 @@ li {
 }
 
 .electricity-status div {
-    width: 35%;
+    /* width: 35%; */
     height: 10%;
     border: none !important;
-    /* background-color: aqua; */
-
 }
+
+
+/* .date-section {
+    width: 10vw;
+    height: 3vh;
+    float: right;
+    right: 0;
+    top: 0;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+} */
 
 /* PROGRESS BAR */
 .progress-bar-section {
@@ -132,13 +103,10 @@ li {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 50vh;
+    height: fit-content;
     width: 100%;
-    overflow: hidden;
     /* background-color: #B7C7E1; */
 }
-
-
 
 .title-chart-section {
     display: flex;
@@ -177,4 +145,28 @@ li {
     color: rgb(0, 0, 187);
     float: right;
     margin-right: 20px;
+}
+
+
+@media (max-width: 800px) {
+
+    .panel{
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .panel-container-item{
+        margin-bottom: 10px;
+        border-radius: 0px !important;
+        height: fit-content;
+    }
+
+    .dateSection {
+        top: 0;
+        position: absolute;
+        right: 0;
+    }
+    .panel-container-item{
+        flex: 100%;
+    }
 }

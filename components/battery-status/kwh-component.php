@@ -63,7 +63,7 @@ function kwhComponentValue($value, $id)
 </head>
 
 <body>
-    <ul>
+    <!-- <ul>
         <li>
             <h5>Smart Plug 1 <span id="kwh-component-value-1" class="value-component"></span></h5>
         </li>
@@ -136,7 +136,91 @@ function kwhComponentValue($value, $id)
                 <div class="progress-bar" style="width:<?php echo $progress_bar_8 ?>%;"></div>
             </div>
         </li>
-    </ul>
+    </ul> -->
+
+    <div class="panel-section">
+        <div class="panel-section-title">
+            <h5>
+                kWh Electricity Status
+            </h5>
+        </div>
+        <div class="panel-section-data">
+            <ul>
+                <li>
+                    <h5>Smart Plug 1 <span id="kwh-component-value-1" class="value-component"></span></h5>
+                </li>
+                <li>
+                    <div class="progress-bar-section">
+                        <div class="background-bar"></div>
+                        <div class="progress-bar" style="width:<?php echo $progress_bar_1 ?>%;"></div>
+                    </div>
+                </li>
+                <li>
+                    <h5>Smart Plug 2 <span id="kwh-component-value-2" class="value-component"></span></h5>
+                </li>
+                <li>
+                    <div class="progress-bar-section">
+                        <div class="background-bar"></div>
+                        <div class="progress-bar" style="width:<?php echo $progress_bar_2 ?>%;"></div>
+                    </div>
+                </li>
+                <li>
+                    <h5>Smart Plug 3 <span id="kwh-component-value-3" class="value-component"></span></h5>
+                </li>
+                <li>
+                    <div class="progress-bar-section">
+                        <div class="background-bar"></div>
+                        <div class="progress-bar" style="width:<?php echo $progress_bar_3 ?>%;"></div>
+                    </div>
+                </li>
+                <li>
+                    <h5>Smart Plug 4 <span id="kwh-component-value-4" class="value-component"></span></h5>
+                </li>
+                <li>
+                    <div class="progress-bar-section">
+                        <div class="background-bar"></div>
+                        <div class="progress-bar" style="width:<?php echo $progress_bar_4 ?>%;"></div>
+                    </div>
+                </li>
+                <li>
+                    <h5>Smart Plug 5 <span id="kwh-component-value-5" class="value-component"></span></h5>
+                </li>
+                <li>
+                    <div class="progress-bar-section">
+                        <div class="background-bar"></div>
+                        <div class="progress-bar" style="width:<?php echo $progress_bar_5 ?>%;"></div>
+                    </div>
+                </li>
+                <li>
+                    <h5>Smart Plug 6 <span id="kwh-component-value-6" class="value-component"></span></h5>
+                </li>
+                <li>
+                    <div class="progress-bar-section">
+                        <div class="background-bar"></div>
+                        <div class="progress-bar" style="width:<?php echo $progress_bar_6 ?>%;"></div>
+                    </div>
+                </li>
+                <li>
+                    <h5>Smart Plug 7 <span id="kwh-component-value-7" class="value-component"></span></h5>
+                </li>
+                <li>
+                    <div class="progress-bar-section">
+                        <div class="background-bar"></div>
+                        <div class="progress-bar" style="width:<?php echo $progress_bar_7 ?>%;"></div>
+                    </div>
+                </li>
+                <li>
+                    <h5>Smart Plug 8 <span id="kwh-component-value-8" class="value-component"></span></h5>
+                </li>
+                <li>
+                    <div class="progress-bar-section">
+                        <div class="background-bar"></div>
+                        <div class="progress-bar" style="width:<?php echo $progress_bar_8 ?>%;"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </body>
 
 </html>

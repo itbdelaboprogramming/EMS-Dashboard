@@ -3,6 +3,10 @@ include('../database/config.php');
 
 $time  = mysqli_query($connect, 'SELECT time FROM tuya_smart_plug_6 WHERE voltage IS NOT NULL ORDER BY id DESC LIMIT 20');
 $voltage  = mysqli_query($connect, 'SELECT voltage FROM tuya_smart_plug_6 WHERE voltage IS NOT NULL ORDER BY id DESC LIMIT 20');
+$current  = mysqli_query($connect, 'SELECT current FROM tuya_smart_plug_6 WHERE current IS NOT NULL ORDER BY id DESC LIMIT 20');
+$power  = mysqli_query($connect, 'SELECT power FROM tuya_smart_plug_6 WHERE power IS NOT NULL ORDER BY id DESC LIMIT 20');
+$electricity  = mysqli_query($connect, 'SELECT electricity FROM tuya_smart_plug_6 WHERE electricity IS NOT NULL ORDER BY id DESC LIMIT 20');
+
 ?>
 <script>
     var dataset = [];
@@ -33,15 +37,46 @@ while ($b = mysqli_fetch_array($time)) {
         const data = {
             labels: labels,
             datasets: [{
-                label: 'voltage',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [<?php
-                        while ($b = mysqli_fetch_array($voltage)) {
-                            echo  $b['voltage'] . ',';
-                        }
-                        ?>],
-            }]
+                    label: 'Current (A)',
+                    backgroundColor: '#EA047E',
+                    borderColor: '#EA047E',
+                    data: [<?php
+                            while ($b = mysqli_fetch_array($current)) {
+                                echo  $b['current'] . ',';
+                            }
+                            ?>],
+                },
+                {
+                    label: 'Voltage (V)',
+                    backgroundColor: '#FF6D28',
+                    borderColor: '#FF6D28',
+                    data: [<?php
+                            while ($b = mysqli_fetch_array($voltage)) {
+                                echo  $b['voltage'] . ',';
+                            }
+                            ?>],
+                },
+                {
+                    label: 'Power (Watt)',
+                    backgroundColor: '#FCE700',
+                    borderColor: '#FCE700',
+                    data: [<?php
+                            while ($b = mysqli_fetch_array($power)) {
+                                echo  $b['power'] . ',';
+                            }
+                            ?>],
+                },
+                {
+                    label: 'Electricity (Watt)',
+                    backgroundColor: '#00F5FF',
+                    borderColor: '#00F5FF',
+                    data: [<?php
+                            while ($b = mysqli_fetch_array($electricity)) {
+                                echo  $b['electricity'] . ',';
+                            }
+                            ?>],
+                },
+            ]
         };
 
         const config = {

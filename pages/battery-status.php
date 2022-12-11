@@ -1,32 +1,10 @@
 <div id="battery-status" class="tabcontent" style="display:block;">
-    <div class="title-panel-section">
-        <div class="electrity">
-            <h5>Electricity Status</h5>
-            <h5 id="electricity-value" class="electricity-value"></h5>
-        </div>
-        <div class="kwh">
-            <h5>kWh Electricity Status</h5>
-            <h5 id="kwh-value" class="kwh-value"></h5>
-        </div>
-        <div class="cost">
-            <h5>Cost Electricity</h5>
-            <h5 id="cost-value" class="cost-value"></h5>
-        </div>
-        <div class="carbon">
-            <h5>Carbon Footprint</h5>
-            <h5 id="carbon-value" class="carbon-value"></h5>
-        </div>
-        <div class="status">
-            <h5>Data Communication Status</h5>
-            <h5 id="status-value" class="status-value"></h5>
-        </div>
-    </div>
-    <div class="panel-section">
-        <div id="electricity"></div>
-        <div class="kwh" id="kwh"></div>
-        <div class="cost" id="cost"></div>
-        <div class="carbon" id="carbon"></div>
-        <div class="status" id="status"></div>
+    <div class="panel">
+        <div class="panel-container-item" id="electricity"></div>
+        <div class="kwh panel-container-item" id="kwh"></div>
+        <div class="cost panel-container-item" id="cost"></div>
+        <div class="carbon panel-container-item" id="carbon"></div>
+        <div class="status panel-container-item" id="status"></div>
     </div>
     <div class="title-chart-section">
         <div class="battery-options">
@@ -69,7 +47,7 @@
                 $('#cost').load('./components/battery-status/cost-electricity-component.php');
                 $('#carbon').load('./components/battery-status/carbon-component.php');
                 $('#status').load('./components/battery-status/status-component.php');
-            }, 500);
+            }, 5000);
         </script>
     </div>
 </div>

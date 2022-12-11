@@ -19,7 +19,7 @@ function statusChanger($id, $voltage, $current, $statusId,)
                 <script>
                     let theNumber = "status-" + <?php echo "$statusId"; ?>;
                     document.getElementById(theNumber).innerHTML = "Online"
-                    document.getElementById(theNumber).style.color="green"
+                    document.getElementById(theNumber).style.color = "green"
                 </script>
             <?php
             } else {
@@ -27,7 +27,7 @@ function statusChanger($id, $voltage, $current, $statusId,)
                 <script>
                     let theNumber = "status-" + <?php echo "$statusId"; ?>;
                     document.getElementById(theNumber).innerHTML = "Idle"
-                    document.getElementById(theNumber).style.color="rgb(225, 214, 0)"
+                    document.getElementById(theNumber).style.color = "rgb(225, 214, 0)"
                 </script>
             <?php
             }
@@ -36,7 +36,7 @@ function statusChanger($id, $voltage, $current, $statusId,)
             <script>
                 let theNumber = "status-" + <?php echo "$statusId"; ?>;
                 document.getElementById(theNumber).innerHTML = "Offline"
-                document.getElementById(theNumber).style.color="blue"
+                document.getElementById(theNumber).style.color = "blue"
             </script>
     <?php
         }
@@ -118,7 +118,7 @@ while ($row_1 = mysqli_fetch_array($status_1)) {
 </head>
 
 <body>
-    <ul class="data_status">
+    <!-- <ul class="data_status">
         <li>
             <h5>Smartplug 1&emsp;: <span class="status_connection" id="status-1"></span></h5>
             <br>
@@ -151,7 +151,51 @@ while ($row_1 = mysqli_fetch_array($status_1)) {
             <h5>Smartplug 8&emsp;:<span class="status_connection" id="status-8"></span></h5>
             <br>
         </li>
-    </ul>
+    </ul> -->
+
+    <div class="panel-section">
+        <div class="panel-section-title">
+            <h5>
+                Data Communication Status
+            </h5>
+        </div>
+        <div class="panel-section-data">
+            <ul class="data_status">
+                <li>
+                    <h5>Smartplug 1&emsp;: <span class="status_connection" id="status-1"></span></h5>
+                    <br>
+                </li>
+                <li>
+                    <h5>Smartplug 2&emsp;: <span class="status_connection" id="status-2"></span></h5>
+                    <br>
+                </li>
+                <li>
+                    <h5>Smartplug 3&emsp;: <span class="status_connection" id="status-3"></span></h5>
+                    <br>
+                </li>
+                <li>
+                    <h5>Smartplug 4&emsp;: <span class="status_connection" id="status-4"></span></h5>
+                    <br>
+                </li>
+                <li>
+                    <h5>Smartplug 5&emsp;:<span class="status_connection" id="status-5"></span></h5>
+                    <br>
+                </li>
+                <li>
+                    <h5>Smartplug 6&emsp;:<span class="status_connection" id="status-6"></span></h5>
+                    <br>
+                </li>
+                <li>
+                    <h5>Smartplug 7&emsp;:<span class="status_connection" id="status-7"></span></h5>
+                    <br>
+                </li>
+                <li>
+                    <h5>Smartplug 8&emsp;:<span class="status_connection" id="status-8"></span></h5>
+                    <br>
+                </li>
+            </ul>
+        </div>
+    </div>
 </body>
 
 </html>

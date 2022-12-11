@@ -49,285 +49,292 @@ $current_9  = mysqli_query($connect, 'SELECT current FROM tuya_smart_plug_9 WHER
 $power_9  = mysqli_query($connect, 'SELECT power FROM tuya_smart_plug_9 WHERE power IS NOT NULL ORDER BY id DESC LIMIT 20');
 
 ?>
-<ul>
-    <li>
-        <h5>Smart Plug 1</h5>
-    </li>
-    <li>
-        <div class="electricity-status">
-            <div class="voltage">
-                <span>V : </span>
-                <span>
-                    <?php
-                    $row1 = mysqli_fetch_array($voltage_1);
-                    echo $row1['voltage'];
-                    ?>
-                </span>
-                <span>Volt</span>
-            </div>
-            <div class="current">
-                <span>I : </span>
-                <span>
-                    <?php
-                    $row1 = mysqli_fetch_array($current_1);
-                    echo $row1['current'];
-                    ?></span>
-                <span>A</span>
-            </div>
-            <div class="power">
-                <span>P : </span>
-                <span>
-                    <?php
-                    $row1 = mysqli_fetch_array($power_1);
-                    echo $row1['power'];
-                    ?></span>
-                <span>Watt</span>
-            </div>
-        </div>
-    </li>
-    <li>
-        <h5>Smart Plug 2</h5>
-    </li>
-    <li>
-        <div class="electricity-status">
-            <div class="voltage">
-                <span>V : </span>
-                <span>
-                    <?php
-                    $row2 = mysqli_fetch_array($voltage_2);
-                    echo $row2['voltage'];
-                    ?>
-                </span>
-                <span>Volt</span>
-            </div>
-            <div class="current">
-                <span>I : </span>
-                <span>
-                    <?php
-                    $row2 = mysqli_fetch_array($current_2);
-                    echo $row2['current'];
-                    ?></span>
-                <span>A</span>
-            </div>
-            <div class="power">
-                <span>P : </span>
-                <span>
-                    <?php
-                    $row2 = mysqli_fetch_array($power_2);
-                    echo $row2['power'];
-                    ?></span>
-                <span>Watt</span>
-            </div>
-        </div>
-    </li>
-    <li>
-        <h5>Smart Plug 3</h5>
-    </li>
-    <li>
-        <div class="electricity-status">
-            <div class="voltage">
-                <span>V : </span>
-                <span>
-                    <?php
-                    $row3 = mysqli_fetch_array($voltage_3);
-                    echo $row3['voltage'];
-                    ?>
-                </span>
-                <span>Volt</span>
-            </div>
-            <div class="current">
-                <span>I : </span>
-                <span>
-                    <?php
-                    $row3 = mysqli_fetch_array($current_3);
-                    echo $row3['current'];
-                    ?></span>
-                <span>A</span>
-            </div>
-            <div class="power">
-                <span>P : </span>
-                <span>
-                    <?php
-                    $row3 = mysqli_fetch_array($power_3);
-                    echo $row3['power'];
-                    ?></span>
-                <span>Watt</span>
-            </div>
-        </div>
-    </li>
-    <li>
-        <h5>Smart Plug 4</h5>
-    </li>
-    <li>
-        <div class="electricity-status">
-            <div class="voltage">
-                <span>V : </span>
-                <span>
-                    <?php
-                    $row4 = mysqli_fetch_array($voltage_4);
-                    echo $row4['voltage'];
-                    ?>
-                </span>
-                <span>Volt</span>
-            </div>
-            <div class="current">
-                <span>I : </span>
-                <span>
-                    <?php
-                    $row4 = mysqli_fetch_array($current_4);
-                    echo $row4['current'];
-                    ?></span>
-                <span>A</span>
-            </div>
-            <div class="power">
-                <span>P : </span>
-                <span>
-                    <?php
-                    $row4 = mysqli_fetch_array($power_4);
-                    echo $row4['power'];
-                    ?></span>
-                <span>Watt</span>
-            </div>
-        </div>
-    </li>
-    <li>
-        <h5>Smart Plug 5</h5>
-    </li>
-    <li>
-        <div class="electricity-status">
-            <div class="voltage">
-                <span>V : </span>
-                <span>
-                    <?php
-                    $row5 = mysqli_fetch_array($voltage_5);
-                    echo $row5['voltage'];
-                    ?>
-                </span>
-                <span>Volt</span>
-            </div>
-            <div class="current">
-                <span>I : </span>
-                <span>
-                    <?php
-                    $row5 = mysqli_fetch_array($current_5);
-                    echo $row5['current'];
-                    ?></span>
-                <span>A</span>
-            </div>
-            <div class="power">
-                <span>P : </span>
-                <span>
-                    <?php
-                    $row5 = mysqli_fetch_array($power_5);
-                    echo $row5['power'];
-                    ?></span>
-                <span>Watt</span>
-            </div>
-        </div>
-    </li>
-    <li>
-        <h5>Smart Plug 6</h5>
-    </li>
-    <li>
-        <div class="electricity-status">
-            <div class="voltage">
-                <span>V : </span>
-                <span>
-                    <?php
-                    $row6 = mysqli_fetch_array($voltage_6);
-                    echo $row6['voltage'];
-                    ?>
-                </span>
-                <span>Volt</span>
-            </div>
-            <div class="current">
-                <span>I : </span>
-                <span>
-                    <?php
-                    $row6 = mysqli_fetch_array($current_6);
-                    echo $row6['current'];
-                    ?></span>
-                <span>A</span>
-            </div>
-            <div class="power">
-                <span>P : </span>
-                <span>
-                    <?php
-                    $row6 = mysqli_fetch_array($power_6);
-                    echo $row6['power'];
-                    ?></span>
-                <span>Watt</span>
-            </div>
-        </div>
-    </li>
-    <li>
-        <h5>Smart Plug 7</h5>
-    </li>
-    <li>
-        <div class="electricity-status">
-            <div class="voltage">
-                <span>V : </span>
-                <span>
-                    <?php
-                    $row7 = mysqli_fetch_array($voltage_7);
-                    echo $row7['voltage'];
-                    ?>
-                </span>
-                <span>Volt</span>
-            </div>
-            <div class="current">
-                <span>I : </span>
-                <span>
-                    <?php
-                    $row7 = mysqli_fetch_array($current_7);
-                    echo $row7['current'];
-                    ?></span>
-                <span>A</span>
-            </div>
-            <div class="power">
-                <span>P : </span>
-                <span>
-                    <?php
-                    $row7 = mysqli_fetch_array($power_7);
-                    echo $row7['power'];
-                    ?></span>
-                <span>Watt</span>
-            </div>
-        </div>
-    </li>
-    <li>
-        <h5>Smart Plug 8</h5>
-    </li>
-    <li>
-        <div class="electricity-status">
-            <div class="voltage">
-                <span>V : </span>
-                <span>
-                    <?php
-                    $row8 = mysqli_fetch_array($voltage_8);
-                    echo $row8['voltage'];
-                    ?>
-                </span>
-                <span>Volt</span>
-            </div>
-            <div class="current">
-                <span>I : </span>
-                <span>
-                    <?php
-                    $row8 = mysqli_fetch_array($current_8);
-                    echo $row8['current'];
-                    ?></span>
-                <span>A</span>
-            </div>
-            <div class="power">
-                <span>P : </span>
-                <span>
-                    <?php
-                    $row8 = mysqli_fetch_array($power_8);
-                    echo $row8['power'];
-                    ?></span>
-                <span>Watt</span>
-            </div>
-        </div>
-    </li>
-</ul>
+<div class="panel-section">
+    <div class="panel-section-title">
+        <h5>Electricity Status</h5>
+    </div>
+    <div class="panel-section-data">
+        <ul>
+            <li>
+                <h5>Smart Plug 1</h5>
+            </li>
+            <li>
+                <div class="electricity-status">
+                    <div class="voltage">
+                        <span>V : </span>
+                        <span>
+                            <?php
+                            $row1 = mysqli_fetch_array($voltage_1);
+                            echo $row1['voltage'];
+                            ?>
+                        </span>
+                        <span>Volt</span>
+                    </div>
+                    <div class="current">
+                        <span>I : </span>
+                        <span>
+                            <?php
+                            $row1 = mysqli_fetch_array($current_1);
+                            echo $row1['current'];
+                            ?></span>
+                        <span>A</span>
+                    </div>
+                    <div class="power">
+                        <span>P : </span>
+                        <span>
+                            <?php
+                            $row1 = mysqli_fetch_array($power_1);
+                            echo $row1['power'];
+                            ?></span>
+                        <span>Watt</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h5>Smart Plug 2</h5>
+            </li>
+            <li>
+                <div class="electricity-status">
+                    <div class="voltage">
+                        <span>V : </span>
+                        <span>
+                            <?php
+                            $row2 = mysqli_fetch_array($voltage_2);
+                            echo $row2['voltage'];
+                            ?>
+                        </span>
+                        <span>Volt</span>
+                    </div>
+                    <div class="current">
+                        <span>I : </span>
+                        <span>
+                            <?php
+                            $row2 = mysqli_fetch_array($current_2);
+                            echo $row2['current'];
+                            ?></span>
+                        <span>A</span>
+                    </div>
+                    <div class="power">
+                        <span>P : </span>
+                        <span>
+                            <?php
+                            $row2 = mysqli_fetch_array($power_2);
+                            echo $row2['power'];
+                            ?></span>
+                        <span>Watt</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h5>Smart Plug 3</h5>
+            </li>
+            <li>
+                <div class="electricity-status">
+                    <div class="voltage">
+                        <span>V : </span>
+                        <span>
+                            <?php
+                            $row3 = mysqli_fetch_array($voltage_3);
+                            echo $row3['voltage'];
+                            ?>
+                        </span>
+                        <span>Volt</span>
+                    </div>
+                    <div class="current">
+                        <span>I : </span>
+                        <span>
+                            <?php
+                            $row3 = mysqli_fetch_array($current_3);
+                            echo $row3['current'];
+                            ?></span>
+                        <span>A</span>
+                    </div>
+                    <div class="power">
+                        <span>P : </span>
+                        <span>
+                            <?php
+                            $row3 = mysqli_fetch_array($power_3);
+                            echo $row3['power'];
+                            ?></span>
+                        <span>Watt</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h5>Smart Plug 4</h5>
+            </li>
+            <li>
+                <div class="electricity-status">
+                    <div class="voltage">
+                        <span>V : </span>
+                        <span>
+                            <?php
+                            $row4 = mysqli_fetch_array($voltage_4);
+                            echo $row4['voltage'];
+                            ?>
+                        </span>
+                        <span>Volt</span>
+                    </div>
+                    <div class="current">
+                        <span>I : </span>
+                        <span>
+                            <?php
+                            $row4 = mysqli_fetch_array($current_4);
+                            echo $row4['current'];
+                            ?></span>
+                        <span>A</span>
+                    </div>
+                    <div class="power">
+                        <span>P : </span>
+                        <span>
+                            <?php
+                            $row4 = mysqli_fetch_array($power_4);
+                            echo $row4['power'];
+                            ?></span>
+                        <span>Watt</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h5>Smart Plug 5</h5>
+            </li>
+            <li>
+                <div class="electricity-status">
+                    <div class="voltage">
+                        <span>V : </span>
+                        <span>
+                            <?php
+                            $row5 = mysqli_fetch_array($voltage_5);
+                            echo $row5['voltage'];
+                            ?>
+                        </span>
+                        <span>Volt</span>
+                    </div>
+                    <div class="current">
+                        <span>I : </span>
+                        <span>
+                            <?php
+                            $row5 = mysqli_fetch_array($current_5);
+                            echo $row5['current'];
+                            ?></span>
+                        <span>A</span>
+                    </div>
+                    <div class="power">
+                        <span>P : </span>
+                        <span>
+                            <?php
+                            $row5 = mysqli_fetch_array($power_5);
+                            echo $row5['power'];
+                            ?></span>
+                        <span>Watt</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h5>Smart Plug 6</h5>
+            </li>
+            <li>
+                <div class="electricity-status">
+                    <div class="voltage">
+                        <span>V : </span>
+                        <span>
+                            <?php
+                            $row6 = mysqli_fetch_array($voltage_6);
+                            echo $row6['voltage'];
+                            ?>
+                        </span>
+                        <span>Volt</span>
+                    </div>
+                    <div class="current">
+                        <span>I : </span>
+                        <span>
+                            <?php
+                            $row6 = mysqli_fetch_array($current_6);
+                            echo $row6['current'];
+                            ?></span>
+                        <span>A</span>
+                    </div>
+                    <div class="power">
+                        <span>P : </span>
+                        <span>
+                            <?php
+                            $row6 = mysqli_fetch_array($power_6);
+                            echo $row6['power'];
+                            ?></span>
+                        <span>Watt</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h5>Smart Plug 7</h5>
+            </li>
+            <li>
+                <div class="electricity-status">
+                    <div class="voltage">
+                        <span>V : </span>
+                        <span>
+                            <?php
+                            $row7 = mysqli_fetch_array($voltage_7);
+                            echo $row7['voltage'];
+                            ?>
+                        </span>
+                        <span>Volt</span>
+                    </div>
+                    <div class="current">
+                        <span>I : </span>
+                        <span>
+                            <?php
+                            $row7 = mysqli_fetch_array($current_7);
+                            echo $row7['current'];
+                            ?></span>
+                        <span>A</span>
+                    </div>
+                    <div class="power">
+                        <span>P : </span>
+                        <span>
+                            <?php
+                            $row7 = mysqli_fetch_array($power_7);
+                            echo $row7['power'];
+                            ?></span>
+                        <span>Watt</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h5>Smart Plug 8</h5>
+            </li>
+            <li>
+                <div class="electricity-status">
+                    <div class="voltage">
+                        <span>V : </span>
+                        <span>
+                            <?php
+                            $row8 = mysqli_fetch_array($voltage_8);
+                            echo $row8['voltage'];
+                            ?>
+                        </span>
+                        <span>Volt</span>
+                    </div>
+                    <div class="current">
+                        <span>I : </span>
+                        <span>
+                            <?php
+                            $row8 = mysqli_fetch_array($current_8);
+                            echo $row8['current'];
+                            ?></span>
+                        <span>A</span>
+                    </div>
+                    <div class="power">
+                        <span>P : </span>
+                        <span>
+                            <?php
+                            $row8 = mysqli_fetch_array($power_8);
+                            echo $row8['power'];
+                            ?></span>
+                        <span>Watt</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
