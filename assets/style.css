@@ -1,39 +1,172 @@
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
+* {
+    color: #3c404c;
+    font-size: 0.9vw;
 }
+
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 80px;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 500;
+    background-color: #F4F6F8;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 110px;
-  background-color: #f5f5f5;
+
+li {
+    list-style-type: none;
+}
+
+.home-section {
+    position: relative;
+    min-height: 100vh;
+    left: 78px;
+    width: calc(100% - 78px);
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+.tabcontent {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.panel{
+    display: flex;
+    box-sizing: border-box;
+    gap: 1%;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.panel-container-item{
+    border: 1px solid #3c404c;
+    flex: 20%;
+    border-radius: 5px !important;
+}
+.panel-section-data{
+    height: 30vh !important;
+    overflow-y: auto;
+    border-top: 1px solid #000;
+}
+
+.electricity-status {
+    display: flex;
+    width: 100%;
+    font-size: 0.9vw;
+    justify-content: space-between;
+    border: none !important;
+    border-bottom: 2px solid #B7C7E1 !important;
+    border-radius: 0 !important;
+
+}
+
+.electricity-status div {
+    /* width: 35%; */
+    height: 10%;
+    border: none !important;
 }
 
 
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
+/* .date-section {
+    width: 10vw;
+    height: 3vh;
+    float: right;
+    right: 0;
+    top: 0;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+} */
 
-body > .container {
-  padding: 60px 15px 0;
-}
-.container .text-muted {
-  margin: 20px 0;
+/* PROGRESS BAR */
+.progress-bar-section {
+    border: none !important;
+    padding: 2%;
+
 }
 
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
+.progress-bar-section .background-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #284ddf7e;
+    border: none !important;
+    /* position: relative; */
 }
 
-code {
-  font-size: 80%;
+.progress-bar-section .progress-bar {
+    border: none !important;
+    /* width: 50%; */
+    max-width: 100%;
+    height: 20px;
+    background-color: #284EDF;
+    margin-top: -20px;
+}
+
+.chart-section {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: fit-content;
+    width: 100%;
+    /* background-color: #B7C7E1; */
+}
+
+.title-chart-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: 3vh;
+    width: 100%;
+    padding-top: auto;
+    margin-bottom: 30px;
+}
+
+.title-chart-section div {
+    width: 5vw;
+    height: 100%;
+    /* background-color: red; */
+}
+
+.data_status li {
+    border-bottom: 2px solid #B7C7E1;
+}
+
+.data_status .status_connection {
+    float: right;
+}
+
+.hide {
+    display: none;
+}
+
+.batt-toggle {
+    border: 2px solid #B7C7E1;
+    border-radius: 5px;
+}
+
+.value-component {
+    color: rgb(0, 0, 187);
+    float: right;
+    margin-right: 20px;
+}
+
+
+@media (max-width: 800px) {
+
+    .panel{
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .panel-container-item{
+        margin-bottom: 10px;
+        border-radius: 0px !important;
+        height: fit-content;
+    }
+
+    .dateSection {
+        top: 0;
+        position: absolute;
+        right: 0;
+    }
+    .panel-container-item{
+        flex: 100%;
+    }
 }
