@@ -1,0 +1,64 @@
+.controller_button_section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.controller_button_section .button_section {
+    height: 100px;
+    flex-basis: calc(50% - 10px);
+    margin: 5px;
+    border: 2px solid var(--secondary);
+    padding: 20px;
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+/* BUTTON SLIDER SECTION */
+.controller_button_section .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.controller_button_section .switch input {
+    display: none;
+}
+
+.controller_button_section .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: .4s;
+}
+
+.controller_button_section .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+.controller_button_section input:checked+.slider {
+    background-color: #2196F3;
+}
+
+.controller_button_section input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+
+@media (max-width: 600px) {
+    .controller_button_section .button_section {
+        flex-basis: 100%;
+    }
+}

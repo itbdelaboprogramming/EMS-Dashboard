@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="stylesheet" href="transition.css"> -->
+    <link rel="stylesheet" href="style.css">
+
+
+    <script src="https://kit.fontawesome.com/1eef294ba4.js" crossorigin="anonymous"></script>
+    <script src="./js.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigator">
+            <div class="home-navigation">
+                <ul>
+                    <li>
+                        <button class="dashboard tablinks active" onclick="openTab(event, 'dashboard')">
+                            <div class="icon-nav">
+                                <i class="fa-solid fa-bars fa-2xl"></i>
+                            </div>
+                            <div class="text-nav">Dashboard</div>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="icon-navigation tab">
+                <ul>
+                    <li>
+                        <button class="smartplug-status tablinks" onclick="openTab(event, 'smartplug-status')">
+                            <div class="icon-nav">
+                                <i class="fa-solid fa-smartplug-empty  fa-2xl"></i>
+                            </div>
+                            <div class="text-nav">Smartplug <br> Status</div>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="database-report tablinks" onclick="openTab(event, 'database-report')">
+                            <div class="icon-nav">
+                                <i class="fa-solid fa-calendar-day  fa-2xl"></i>
+                            </div>
+                            <div class="text-nav">Daily</div>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="monthly-report tablinks" onclick="openTab(event, 'monthly-report')">
+                            <div class="icon-nav">
+                                <i class="fa-solid fa-calendar-days  fa-2xl"></i>
+                            </div>
+                            <div class="text-nav">Monthly</div>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="yearly-report tablinks" onclick="openTab(event, 'yearly-report')">
+                            <div class="icon-nav">
+                                <i class="fa-solid fa-calendar  fa-2xl"></i>
+                            </div>
+                            <div class="text-nav">Yearly</div>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="events tablinks" onclick="openTab(event, 'events')">
+                            <div class="icon-nav">
+                                <i class="fa-solid fa-calendar-check  fa-2xl"></i>
+                            </div>
+                            <div class="text-nav">Events</div>
+                        </button>
+                    </li>
+                </ul>
+                <!-- <div class="tab"> -->
+                <!-- <button class="tablinks active" onclick="openTab(event, 'Pop')">Pop</button>
+                    <button class="tablinks" onclick="openTab(event, 'HipHop')">HipHop</button>
+                    <button class="tablinks" onclick="openTab(event, 'Jazz')">Jazz</button> -->
+                <!-- </div> -->
+            </div>
+        </div>
+        <div class="main-content">
+            <div id="dashboard" class="tabcontent">
+                <h3>Dashboard</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus ut massa et ullamcorper. In hac
+                    habitasse platea dictumst. Quisque tempor odio sit amet aliquam iaculis.</p>
+                <p>If you are feeling Jazzy click <a href="#!" onclick="tabLink('Jazz')">HERE</a></p>
+            </div>
+
+            <div id="smartplug-status" class="tabcontent" style="display:none;">
+                <h3>smartplug-status</h3>
+                <p>Sed eu efficitur lorem. Pellentesque varius nulla nec lectus consectetur ullamcorper. In at urna
+                    orci. Sed ut malesuada elit, vel tempor leo.</p>
+            </div>
+
+            <div id="database-report" class="tabcontent" style="display:none;">
+                <h3>database-report</h3>
+                <p>Fusce arcu magna, mollis eu cursus ut, mollis sit amet quam. Aenean mattis turpis vitae iaculis
+                    venenatis. Cras tempus gravida quam in malesuada.</p>
+            </div>
+            <div id="monthly-report" class="tabcontent" style="display:none;">
+                <h3>monthly-report</h3>
+                <p>Fusce arcu magna, mollis eu cursus ut, mollis sit amet quam. Aenean mattis turpis vitae iaculis
+                    venenatis. Cras tempus gravida quam in malesuada.</p>
+            </div>
+            <div id="yearly-report" class="tabcontent" style="display:none;">
+                <h3>early-report</h3>
+                <p>Fusce arcu magna, mollis eu cursus ut, mollis sit amet quam. Aenean mattis turpis vitae iaculis
+                    venenatis. Cras tempus gravida quam in malesuada.</p>
+            </div>
+            <div id="events" class="tabcontent" style="display:none;">
+                <h3>events</h3>
+                <p>Fusce arcu magna, mollis eu cursus ut, mollis sit amet quam. Aenean mattis turpis vitae iaculis
+                    venenatis. Cras tempus gravida quam in malesuada.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

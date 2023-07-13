@@ -1,0 +1,81 @@
+input,select{
+    border-radius: 5px;
+    border: 2px solid var(--secondary);
+}
+
+
+.summary-pages {
+    width: 100%;
+    height: 50vh;
+    padding: 2%;
+}
+
+.flex {
+    display: flex;
+}
+
+.option-section {
+    height: fit-content;
+    width: 100%;
+    background-color: red;
+}
+
+.option-section button {
+    border: none;
+
+}
+
+.form >div{
+    margin-right: 10px;
+}
+
+.summary-pages .detail-section .detail {
+    justify-content: space-between;
+    height: 40%;
+    width: 100%;
+}
+
+.summary-pages .detail-section .detail>div {
+    border: 2px solid var(--secondary);
+    margin-top: 1%;
+    padding-top: 5px;
+    width: 30%;
+    height: 15vh;
+}
+
+.summary-pages .detail-section .detail .value {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.summary-pages .detail-section .detail-value {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.summary-pages .detail-section .subtitle {
+    margin-top: 5%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+/* .summary-pages .graph-section {
+    justify-content: space-between;
+    width: 95%;
+}
+
+.summary-pages .graph-section>div {
+    height: auto;
+    background-color: aqua;
+    margin-top: 1%;
+}
+
+.summary-pages .graph-section .graph {
+    width: 65%;
+}
+
+.summary-pages .graph-section .acctive-appliances {
+    width: 30%;
+} */

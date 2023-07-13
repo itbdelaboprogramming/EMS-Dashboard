@@ -1,0 +1,79 @@
+.light-theme {
+    --primary: #F7F8FAff !important;
+    --secondary: #2D2D4Cff !important;
+    --text_color: #5F61EEff !important;
+    --accent_color: #2D2D4Cff !important;
+
+}
+
+.dark-theme {
+    --primary: #2D2D4Cff !important;
+    --secondary: #F7F8FAff !important;
+    --text_color: #9A9AA3ff !important;
+    --accent_color: #F7F8FAff !important;
+}
+
+.database-report {
+    margin-top: 10% !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+.export-button-section a {
+    width: 50px;
+    color: var(--secondary);
+    border: 1px var(--secondary) solid;
+    text-align: center;
+    margin-right: 5px;
+    /* margin-left: 10%; */
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+.export-button {
+    height:80%;
+    width: max-content;
+    background-color: var(--secondary);
+    color: var(--primary) !important;
+    font-size: 1em;
+}
+
+.dataTables_wrapper {
+    margin-top: 20px;
+}
+
+/* Loading Effect */
+
+.lds-dual-ring {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+}
+
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid black;
+    border-color: black transparent black transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
