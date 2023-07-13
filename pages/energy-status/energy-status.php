@@ -475,7 +475,7 @@
             var status = true;
             var intervalId;
 
-            var chartId;
+            var chartId = 1;
 
             $(document).ready(function() {
                 localStorage.setItem('chart', 1);
@@ -551,7 +551,7 @@
             function hideLoading() {
                 // Sembunyikan tampilan loading
                 $('#loadingContainer').hide();
-                document.getElementById("smartplug-status").style.display='block';
+                document.getElementById("smartplug-status").style.display = 'block';
             }
 
             function UpdateValue(data) {
@@ -577,11 +577,10 @@
                     } else if (data[index - 1].status == "Idle") {
                         document.getElementById(theNumber).innerHTML = "Idle"
                         document.getElementById(theNumber).style.color = "blue"
-                    } 
-                    else if (data[index - 1].status == "Offline") {
+                    } else if (data[index - 1].status == "Offline") {
                         document.getElementById(theNumber).innerHTML = "Offline"
                         document.getElementById(theNumber).style.color = "red"
-                    } 
+                    }
                 }
             }
         </script>
