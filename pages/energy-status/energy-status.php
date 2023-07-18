@@ -29,14 +29,7 @@
     </div>
     <!-- </div> -->
     <div class="chart-section">
-        <div class="Smartplug-1 chartContainer" id="responsecontainer1"></div>
-        <div class="Smartplug-2 chartContainer hide" id="responsecontainer2"></div>
-        <div class="Smartplug-3 chartContainer hide" id="responsecontainer3"></div>
-        <div class="Smartplug-4 chartContainer hide" id="responsecontainer4"></div>
-        <div class="Smartplug-5 chartContainer hide" id="responsecontainer5"></div>
-        <div class="Smartplug-6 chartContainer hide" id="responsecontainer6"></div>
-        <div class="Smartplug-7 chartContainer hide" id="responsecontainer7"></div>
-        <div class="Smartplug-8 chartContainer hide" id="responsecontainer8"></div>
+        <div class="Smartplug-1 chartContainer" id="responsecontainer"></div>
 
         <script>
             var refreshId;
@@ -44,11 +37,21 @@
             var status = true;
             var intervalId;
 
+            var chartId;
+
             $(document).ready(function() {
+                chartId = localStorage.getItem('chart');
+                if (!chartId){
+                    localStorage.setItem('chart', 1);
+                }
+
                 $('.smartplug-toggle').on('change', function() {
                     var demovalue = $(this).val();
-                    $("div.chartContainer").hide();
-                    $("#responsecontainer" + demovalue).show();
+                    console.log(demovalue);
+                    localStorage.setItem('chart', demovalue);
+                    startInterval()
+                    // $("div.chartContainer").hide();
+                    // $("#responsecontainer" + demovalue).show();
                 });
             });
 
@@ -56,20 +59,14 @@
             showLoading();
 
             function startInterval() {
+                console.log("s");
                 document.getElementById("startInterval").classList.add("activeButton");
                 document.getElementById("stopInterval").classList.remove("activeButton");
                 if (status) {
-                    console.log(status);
                     status = true;
                     refreshId = setInterval(function() {
-                        $('#responsecontainer1').load('./pages/energy-status/energy-status-component/charts/smartplug-1.php');
-                        $('#responsecontainer2').load('./pages/energy-status/energy-status-component/charts/smartplug-2.php');
-                        $('#responsecontainer3').load('./pages/energy-status/energy-status-component/charts/smartplug-3.php');
-                        $('#responsecontainer4').load('./pages/energy-status/energy-status-component/charts/smartplug-4.php');
-                        $('#responsecontainer5').load('./pages/energy-status/energy-status-component/charts/smartplug-5.php');
-                        $('#responsecontainer6').load('./pages/energy-status/energy-status-component/charts/smartplug-6.php');
-                        $('#responsecontainer7').load('./pages/energy-status/energy-status-component/charts/smartplug-7.php');
-                        $('#responsecontainer8').load('./pages/energy-status/energy-status-component/charts/smartplug-8.php');
+                        console.log("t");
+                        $('#responsecontainer').load(`./pages/energy-status/energy-status-component/charts.php?param=${chartId}`);
 
                         // $('#electricity').load('./pages/energy-status/energy-status-component/electricity-component.php');
                         $('#kwh').load('./pages/energy-status/energy-status-component/kwh-component.php');
