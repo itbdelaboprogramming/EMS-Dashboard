@@ -169,3 +169,4 @@ function costComponentValue($value, $id)
             </table>
         </div>
     </div>
+</div>
