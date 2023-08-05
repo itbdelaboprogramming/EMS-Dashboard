@@ -1,8 +1,8 @@
 <head>
     <link rel="stylesheet" href="./pages/energy-status/energy-status.css">
 </head>
-<div id="smartplug-status" class="tabcontent energy_status-pages" style="display:block;">
-    <div class="lds-dual-ring" id="loadingContainer"></div>
+<div class="lds-dual-ring" id="loadingContainer"></div>
+<div id="smartplug-status" class="tabcontent energy_status-pages" style="display:none;">
     <div class="panel">
         <!-- <div class="panel-container-item" id="electricity"></div> -->
         <div class="kwh panel-container-item" id="kwh">
@@ -478,14 +478,13 @@
             var chartId;
 
             $(document).ready(function() {
-                chartId = localStorage.getItem('chart');
+                localStorage.setItem('chart', 1);
                 if (!chartId) {
                     localStorage.setItem('chart', 1);
                 }
 
                 $('.smartplug-toggle').on('change', function() {
                     var demovalue = $(this).val();
-                    console.log(demovalue);
                     localStorage.setItem('chart', demovalue);
                     startInterval()
                 });
@@ -552,6 +551,7 @@
             function hideLoading() {
                 // Sembunyikan tampilan loading
                 $('#loadingContainer').hide();
+                document.getElementById("smartplug-status").style.display='block';
             }
 
             function UpdateValue(data) {

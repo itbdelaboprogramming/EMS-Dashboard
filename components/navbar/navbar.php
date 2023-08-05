@@ -80,18 +80,18 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'home';
     const modeText = body.querySelector(".mode-text");
 
 
-    toggle.addEventListener("click", () => {
-        nav.classList.toggle("close");
-    })
+    // toggle.addEventListener("click", () => {
+    //     nav.classList.toggle("close");
+    // })
 
-    modeSwitch.addEventListener("click", () => {
-        body.classList.toggle("dark");
+    // modeSwitch.addEventListener("click", () => {
+    //     body.classList.toggle("dark");
 
-        if (body.classList.contains("dark")) {
-            modeText.innerText = "Light mode";
-        } else {
-            modeText.innerText = "Dark mode";
+    //     if (body.classList.contains("dark")) {
+    //         modeText.innerText = "Light mode";
+    //     } else {
+    //         modeText.innerText = "Dark mode";
 
-        }
-    });
+    //     }
+    // });
 </script>

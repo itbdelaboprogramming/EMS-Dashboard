@@ -1,4 +1,5 @@
-input,select{
+input,
+select {
     border-radius: 5px;
     border: 2px solid var(--secondary);
 }
@@ -25,7 +26,7 @@ input,select{
 
 }
 
-.form >div{
+.form>div {
     margin-right: 10px;
 }
 
@@ -47,11 +48,17 @@ input,select{
     text-align: center;
     font-weight: bold;
     font-size: 2em;
+    background-color: rgba(255, 0, 0, 0);
+}
+
+.summary-pages .detail-section .detail .value sup {
+    background-color: rgba(255, 0, 0, 0);
 }
 
 .summary-pages .detail-section .detail-value {
     font-weight: bold;
     font-size: 1em;
+    background-color: rgba(255, 0, 0, 0);
 }
 
 .summary-pages .detail-section .subtitle {
@@ -59,23 +66,19 @@ input,select{
     text-align: center;
     font-weight: bold;
     font-size: 1.5em;
+    background-color: rgba(255, 0, 0, 0);
 }
 
-/* .summary-pages .graph-section {
-    justify-content: space-between;
-    width: 95%;
+.div-button {
+    border-radius: 5px;
 }
 
-.summary-pages .graph-section>div {
-    height: auto;
-    background-color: aqua;
-    margin-top: 1%;
+.div-button:hover {
+    background-color: var(--secondary);
+    cursor: pointer;
 }
 
-.summary-pages .graph-section .graph {
-    width: 65%;
+.div-button:hover .value,.div-button:hover .subtitle,.div-button:hover .detail-value,.div-button:hover span,.div-button:hover sup {
+    color: var(--primary);
 }
 
-.summary-pages .graph-section .acctive-appliances {
-    width: 30%;
-} */

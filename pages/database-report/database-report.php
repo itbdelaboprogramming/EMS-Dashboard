@@ -2,8 +2,8 @@
     <link rel="stylesheet" href="./pages/database-report/database-report.css">
 </head>
 
-<div id="database-report" class="tabcontent daily_report">
-    <div class="lds-dual-ring" id="loadingContainer"></div>
+<div class="lds-dual-ring" id="loadingContainer"></div>
+<div id="database-report" class="tabcontent daily_report" style="display: none;">
     <div class="" style="display:flex">
         <div class="smartplug-options">
             <select class="smartplug-toggle" data-target=".table-section" id="smartplugSelect">
@@ -96,6 +96,7 @@
 
     function hideLoading() {
         $('#loadingContainer').hide();
+        document.getElementById('database-report').style.display='block'
     }
 
     $(document).ready(function () {
