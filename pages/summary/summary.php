@@ -53,7 +53,7 @@
                     <div class="value">IDR <span id="total-cost" class="total-cost detail-value">0</span></div>
                     <div class="subtitle">Total Cost</div>
                 </div>
-                <div class="total-consomption div-button" onclick="detailInformation('electricity')">
+                <div class="total-consomption div-button" onclick="detailInformation('voltage')">
                     <div class="value"><span id="total-consumption" class="total-consumption detail-value">0</span> kWh</div>
                     <div class="subtitle">Total Consumption</div>
                 </div>
@@ -130,10 +130,12 @@
                     utility: utility,
                 },
                 success: function(data) {
-                    if (utility == "all") {
-                        // console.log("GGGG", data);
-                        var response = JSON.parse(data);
+                    console.log("GGGG", data);
 
+                    // Parse the JSON response
+                    var response = JSON.parse(data);
+
+                    if (utility == "all") {
                         // Mengubah nilai null menjadi 0 dalam array
                         for (var i = 0; i < response.length; i++) {
                             if (response[i] === null) {
@@ -142,16 +144,14 @@
                         }
 
                         // Mengubah semua nilai dalam array menjadi float
-                        response = response.map((e) => parseFloat(e));
-                        updateChart(response)
+                        updateChart(response);
 
                     } else {
-                        var response = JSON.parse(data);
-                        updateChart(response)
+                        updateChart(response);
                     }
-
-                    // Update the chart
-
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error:", error);
                 }
             });
         }
@@ -167,65 +167,39 @@
             var labels = [];
 
             labels = [startDate]
+
             if (utility == "all") {
 
-                const labels = Array.from({
-                    length: 12
-                }, (_, index) => `tuya_smart_plug_${index + 1}`);
+                var response = data
 
-                const data = {
-                    labels: [`${startDate} - ${endDate}`],
-                    datasets: [{
-                            label: 'Delabo Computer-1',
-                            data: [responseData[0]],
-                            backgroundColor: colors[0],
-                        },
-                        {
-                            label: 'Delabo Computer-2',
-                            data: [responseData[1]],
-                            backgroundColor: colors[1],
-                        },
-                        {
-                            label: 'Delabo Computer-3',
-                            data: [responseData[2]],
-                            backgroundColor: colors[2],
-                        },
-                        {
-                            label: 'Delabo Computer-4',
-                            data: [responseData[3]],
-                            backgroundColor: colors[3],
-                        },
-                        {
-                            label: 'Refrigerator',
-                            data: [responseData[4]],
-                            backgroundColor: colors[4],
-                        },
-                        {
-                            label: 'Dispenser',
-                            data: [responseData[5]],
-                            backgroundColor: colors[5],
-                        },
-                        {
-                            label: 'TV',
-                            data: [responseData[6]],
-                            backgroundColor: colors[6],
-                        },
-                        {
-                            label: '32 Print',
-                            data: [responseData[7]],
-                            backgroundColor: colors[7],
-                        },
-                        // {
-                        //     label: 'Dataset 9',
-                        //     data: [responseData[8]],
-                        //     backgroundColor: colors[8],
-                        // },
-                    ]
-                }
+                // Extract table names from the response
+                var tableNames = Object.keys(response[0]);
 
-                const config = {
+                // Create datasets for each table
+                var datasets = tableNames.map(function(tableName, index) {
+                    var tableData = response[0][tableName];
+                    var data = tableData.map(function(entry) {
+                        return entry.total_voltage;
+                    });
+
+                    return {
+                        label: tableName,
+                        data: data,
+                    };
+                });
+
+                // Extract dates from the first table's data
+                var dates = response[0][tableNames[0]].map(function(entry) {
+                    return entry.tanggal;
+                });
+
+                // Create the stacked bar chart
+                chart = new Chart(ctx, {
                     type: 'bar',
-                    data: data,
+                    data: {
+                        labels: dates,
+                        datasets: datasets,
+                    },
                     options: {
                         plugins: {
                             title: {
@@ -262,8 +236,7 @@
                             intersect: false,
                         },
                     }
-                };
-                chart = new Chart(ctx, config)
+                });
             } else {
                 chart = new Chart(ctx, {
                     type: 'bar',
@@ -438,5 +411,5 @@
         });
     </script>
 
-<!-- test git raihan -->
+    <!-- test git raihan -->
 </body>
