@@ -32,11 +32,10 @@ if ($interval === "custom") {
 try {
     if ($utility !== "all") {
         // Build the query
-        $query = "SELECT SUM($status) AS total_value
+        $query = "SELECT DATE(time) AS tanggal, SUM($status) AS total_$status
         FROM $utility
-        WHERE $status IS NOT NULL AND $timeInterval";
-
-        // echo $query;
+        WHERE $status IS NOT NULL AND $timeInterval
+        GROUP BY DATE(time) ";
 
         // Execute the query
         $result = mysqli_query($connect, $query);
@@ -58,13 +57,13 @@ try {
         $data = array();
 
         // Loop untuk mengambil data dari masing-masing tabel
-        for ($i = 1; $i <= 9; $i++) {
+        for ($i = 1; $i <= 8; $i++) {
             $tableName = "tuya_smart_plug_$i";
 
-            $query = "SELECT DATE(time) AS tanggal, SUM(voltage) AS total_voltage
+            $query = "SELECT DATE(time) AS tanggal, SUM($status) AS total_$status
               FROM $tableName
               WHERE $timeInterval
-              GROUP BY DATE(time)";
+              GROUP BY DATE(time) ";
 
             $result = $connect->query($query);
 
@@ -72,7 +71,7 @@ try {
             while ($row = $result->fetch_assoc()) {
                 $tableData[] = array(
                     "tanggal" => $row['tanggal'],
-                    "total_voltage" => $row['total_voltage']
+                    "total_$status" => $row["total_$status"]
                 );
             }
 

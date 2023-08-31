@@ -133,8 +133,6 @@
                     utility: utility,
                 },
                 success: function(data) {
-                    console.log("GGGG", data);
-
                     // Parse the JSON response
                     var response = JSON.parse(data);
 
@@ -150,6 +148,7 @@
                         updateChart(response);
 
                     } else {
+                        console.log("HHHH", response);
                         updateChart(response);
                     }
                 },
@@ -182,9 +181,22 @@
                 var datasets = tableNames.map(function(tableName, index) {
                     var tableData = response[0][tableName];
                     var data = tableData.map(function(entry) {
-                        return entry.total_voltage;
+                        if (entry.total_electricity) {
+                            return parseFloat(entry.total_electricity);
+                        } else if (entry.total_total_cost) {
+                            return parseFloat(entry.total_total_cost);
+                        } else if (entry.total_carbon_emission) {
+                            return parseFloat(entry.total_carbon_emission);
+                        }
                     });
-
+                    tableName == "tuya_smart_plug_1" ? tableName = "Delabo Computer-1" : ""
+                    tableName == "tuya_smart_plug_2" ? tableName = "Delabo Computer-2" : ""
+                    tableName == "tuya_smart_plug_3" ? tableName = "Delabo Computer-3" : ""
+                    tableName == "tuya_smart_plug_4" ? tableName = "Delabo Computer-4" : ""
+                    tableName == "tuya_smart_plug_5" ? tableName = "Refrigerator" : ""
+                    tableName == "tuya_smart_plug_6" ? tableName = "Dispenser" : ""
+                    tableName == "tuya_smart_plug_7" ? tableName = "TV" : ""
+                    tableName == "tuya_smart_plug_8" ? tableName = "3D Print" : ""
                     return {
                         label: tableName,
                         data: data,
@@ -241,32 +253,54 @@
                     }
                 });
             } else {
+                // Extract dates and total electricity values
+                var dates = responseData.map(function(entry) {
+                    return entry.tanggal;
+                });
+
+
+                var totalElectricityValues = responseData.map(function(entry) {
+                    if (entry.total_electricity) {
+                        return parseFloat(entry.total_electricity);
+                    } else if (entry.total_total_cost) {
+                        return parseFloat(entry.total_total_cost);
+                    } else if (entry.total_carbon_emission) {
+                        return parseFloat(entry.total_carbon_emission);
+                    }
+
+                });
+
+                // Create the stacked bar chart
                 chart = new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: labels,
+                        labels: dates,
                         datasets: [{
-                            label: `${temp_status}`,
-                            data: [data[0].total_value],
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            label: `${measurement}`,
+                            data: totalElectricityValues,
+                            backgroundColor: 'rgba(75, 192, 192, 0.6)', // Customize the color
                             borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 1
-                        }]
+                            borderWidth: 1,
+                        }],
                     },
                     options: {
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Chart.js Bar Chart - Stacked'
+                            },
+                        },
+                        responsive: true,
                         scales: {
                             x: {
-                                beginAtZero: true,
-                                display: true,
-                                reverse: true,
+                                stacked: true,
                                 title: {
                                     display: true,
                                     text: 'Time'
-                                },
+                                }
                             },
                             y: {
-                                beginAtZero: true,
-                                display: true,
+                                stacked: true,
                                 title: {
                                     display: true,
                                     text: `${measurement}`
@@ -279,16 +313,12 @@
                             legend: {
                                 display: true
                             },
-                            // title: {
-                            //     display: true,
-                            //     text: `${temp_status}`
-                            // }
                         },
                         animation: false,
                         interaction: {
                             intersect: false,
                         },
-                    }
+                    },
                 });
             }
         }
