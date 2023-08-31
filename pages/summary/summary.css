@@ -78,7 +78,47 @@ select {
     cursor: pointer;
 }
 
-.div-button:hover .value,.div-button:hover .subtitle,.div-button:hover .detail-value,.div-button:hover span,.div-button:hover sup {
+.div-button:hover .value,
+.div-button:hover .subtitle,
+.div-button:hover .detail-value,
+.div-button:hover span,
+.div-button:hover sup {
     color: var(--primary);
 }
 
+.detail .tooltip {
+    position: absolute;
+    top: 15%;
+    z-index: 3;
+    background: var(--secondary);
+    box-shadow: 0 5px 10px var(--secondary);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: 0s;
+    color: var(--primary) !important;
+}
+
+.total-cost .tooltip {
+    left: calc(20%);
+}
+
+.total-consumption .tooltip {
+    left: calc(55%);
+}
+
+.total-carbon-emission .tooltip{
+    left: calc(90%);
+}
+
+.div-button:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+    /* top: 50%; */
+    transform: translateY(-50%);
+}

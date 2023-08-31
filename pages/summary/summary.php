@@ -52,14 +52,17 @@
                 <div class="total-cost div-button" onclick="detailInformation('total_cost')">
                     <div class="value">IDR <span id="total-cost" class="total-cost detail-value">0</span></div>
                     <div class="subtitle">Total Cost</div>
+                    <span class="tooltip">Click for Detail</span>
                 </div>
-                <div class="total-consomption div-button" onclick="detailInformation('voltage')">
+                <div class="total-consumption div-button" onclick="detailInformation('electricity')">
                     <div class="value"><span id="total-consumption" class="total-consumption detail-value">0</span> kWh</div>
                     <div class="subtitle">Total Consumption</div>
+                    <span class="tooltip">Click for Detail</span>
                 </div>
                 <div class="total-carbon-emission div-button" onclick="detailInformation('carbon_emission')">
                     <div class="value"><span id="total-carbon" class="total-carbon detail-value">0</span> kgCO<sub>2</sub></div>
                     <div class="subtitle">Total Carbon Emission</div>
+                    <span class="tooltip">Click for Detail</span>
                 </div>
             </div>
         </div>
