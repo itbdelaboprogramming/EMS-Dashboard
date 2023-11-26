@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <link rel="stylesheet" href="./pages/summary/summary.css">
 
@@ -16,6 +19,7 @@
                                 <option value="daily">Daily</option>
                                 <option value="weekly">Weekly</option>
                                 <option value="monthly">Monthly</option>
+                                <option value="yearly">Yearly</option>
                                 <option value="last_year">Last Year</option>
                                 <option value="custom">Custom</option>
                             </select>
@@ -45,7 +49,10 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="submit-section">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <span class="submit-tooltip ">Click to update</span>
+                    </div>
                 </form>
             </div>
             <div class="flex detail">
@@ -62,7 +69,7 @@
                 <div class="total-carbon-emission div-button" onclick="detailInformation('carbon_emission')">
                     <div class="value"><span id="total-carbon" class="total-carbon detail-value">0</span> kgCO<sub>2</sub></div>
                     <div class="subtitle">Total Carbon Emission</div>
-                    <span class="tooltip">Click for Detail</span>
+                    <span class="submit-tooltip">Click for Detail</span>
                 </div>
             </div>
         </div>
@@ -79,6 +86,21 @@
     </div>
 
     <script>
+        //Option Section
+        document.getElementById('interval').addEventListener('change', handleSelectChange);
+        document.getElementById('utility').addEventListener('change', handleSelectChange);
+
+
+        function handleSelectChange() {
+            // Change the button color to green on select change
+            const submitButton = document.querySelector('.btn.btn-primary');
+            submitButton.style.backgroundColor = 'green';
+
+            const theTooltip = document.querySelector('.submit-tooltip');
+            theTooltip.style.opacity = 1;
+            theTooltip.style.transition = 'all 0.4s ease';
+        }
+
         let chart, interval = 'daily',
             measurement,
             temp_status = "total_cost",
@@ -137,6 +159,7 @@
                     var response = JSON.parse(data);
 
                     if (utility == "all") {
+
                         // Mengubah nilai null menjadi 0 dalam array
                         for (var i = 0; i < response.length; i++) {
                             if (response[i] === null) {
@@ -144,11 +167,9 @@
                             }
                         }
 
-                        // Mengubah semua nilai dalam array menjadi float
                         updateChart(response);
 
                     } else {
-                        console.log("HHHH", response);
                         updateChart(response);
                     }
                 },
@@ -158,8 +179,165 @@
             });
         }
 
+        let hourDaily = []
+        let weekDates = [];
+        let monthDates = [];
+        const theMonths = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        let monthYearly = []
+        let daysInMonth = 0
+
+        function prepareDataWeekly(data) {
+
+            hourDaily = [];
+            if (interval == "daily") {
+                for (let j = 0; j <= 24; j++) {
+                    const hour = `${j < 10 ? '0' : ''}${j}:00:00`;
+                    hourDaily.push(hour);
+                }
+            }
+
+            weekDates = [];
+            if (interval == "weekly") {
+                const today = new Date();
+                today.setDate(today.getDate() - today.getDay());
+
+                // Create an array to hold all the dates in the week
+                for (let i = 0; i < 7; i++) {
+                    const date = new Date(today);
+                    date.setDate(date.getDate() + i);
+                    weekDates.push(date.toISOString().slice(0, 10)); // Push formatted dates (YYYY-MM-DD)
+                }
+            }
+
+            monthDates = [];
+            daysInMonth = 0
+            // Find the today of the current month
+            if (interval == "monthly") {
+                const today = new Date();
+                const year = today.getFullYear();
+                const month = today.getMonth();
+
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                for (let i = 2; i <= daysInMonth + 1; i++) {
+                    const date = new Date(year, month, i);
+                    monthDates.push(date.toISOString().slice(0, 10));
+                }
+
+                return monthDates;
+            }
+        }
+
         function updateChart(data) {
+            if (interval == "daily") {
+                prepareDataWeekly(data)
+
+                for (let i = 1; i <= 8; i++) {
+                    let plugName = `tuya_smart_plug_${i}`;
+
+                    if (data[0][plugName]) {
+                        data[0][plugName].map((item, index) => {
+                            const dateParts = item.tanggal.split(' '); // Split date and time
+                            const timePart = dateParts[1]; // Extract time part
+                            const formattedTime = `${timePart}:00:00`; // Format time as HH:00:00
+
+                            data[0][plugName][index] = {
+                                ...item,
+                                tanggal: formattedTime,
+                            }
+                        })
+
+                        hourDaily.forEach(date => {
+                            const found = data[0][plugName].find(item => item.tanggal === date);
+                            if (!found) {
+                                data[0][plugName].push({
+                                    tanggal: date,
+                                    total_total_cost: "0"
+                                });
+                            }
+                        });
+                    }
+                }
+
+            }
+
+            if (interval == "monthly") {
+                prepareDataWeekly(data)
+
+                for (let i = 1; i <= 8; i++) {
+                    const plugName = `tuya_smart_plug_${i}`;
+                    if (data[0][plugName]) {
+                        monthDates.forEach(date => {
+                            const found = data[0][plugName].find(item => item.tanggal === date);
+                            if (!found) {
+                                data[0][plugName].push({
+                                    tanggal: date,
+                                    total_total_cost: "0"
+                                });
+                            }
+                        });
+                    }
+                }
+            }
+
+            if (interval == "weekly") {
+                prepareDataWeekly(data)
+
+                for (let i = 1; i <= 8; i++) {
+                    const plugName = `tuya_smart_plug_${i}`;
+                    if (data[0][plugName]) {
+                        weekDates.forEach(date => {
+                            const found = data[0][plugName].find(item => item.tanggal === date);
+                            if (!found) {
+                                data[0][plugName].push({
+                                    tanggal: date,
+                                    total_total_cost: "0"
+                                });
+                            }
+                        });
+                    }
+                }
+            }
+
+
+            if (interval == "yearly") {
+                prepareDataWeekly(data)
+
+                for (let i = 1; i <= 8; i++) {
+                    let plugName = `tuya_smart_plug_${i}`;
+
+                    if (data[0][plugName]) {
+                        data[0][plugName].map((item, index) => {
+                            for (let i = 1; i <= 12; i++) {
+                                const found = data[0][plugName].find(item => item.tanggal === i.toString());
+                                if (!found) {
+                                    data[0][plugName].push({
+                                        tanggal: i.toString(),
+                                        total_total_cost: "0"
+                                    });
+                                }
+                            }
+                        });
+
+                        data[0][plugName] = data[0][plugName]
+                            .map(item => {
+                                return {
+                                    tanggal: theMonths[parseInt(item.tanggal) - 1],
+                                    total_total_cost: item.total_total_cost
+                                };
+                            })
+                            .sort((a, b) => {
+                                return theMonths.indexOf(a.tanggal) - theMonths.indexOf(b.tanggal);
+                            });
+                    }
+                }
+            }
+
             let responseData = data
+
             if (chart) {
                 chart.destroy()
             }
@@ -171,7 +349,6 @@
             labels = [startDate]
 
             if (utility == "all") {
-
                 var response = data
 
                 // Extract table names from the response
@@ -189,6 +366,9 @@
                             return parseFloat(entry.total_carbon_emission);
                         }
                     });
+
+
+
                     tableName == "tuya_smart_plug_1" ? tableName = "Delabo Computer-1" : ""
                     tableName == "tuya_smart_plug_2" ? tableName = "Delabo Computer-2" : ""
                     tableName == "tuya_smart_plug_3" ? tableName = "Delabo Computer-3" : ""
@@ -197,6 +377,7 @@
                     tableName == "tuya_smart_plug_6" ? tableName = "Dispenser" : ""
                     tableName == "tuya_smart_plug_7" ? tableName = "TV" : ""
                     tableName == "tuya_smart_plug_8" ? tableName = "3D Print" : ""
+
                     return {
                         label: tableName,
                         data: data,
@@ -207,6 +388,13 @@
                 var dates = response[0][tableNames[0]].map(function(entry) {
                     return entry.tanggal;
                 });
+
+                // console.log("datasets : ", datasets);
+                // console.log("dates : ", dates);
+
+                if (interval == "weekly") {
+                    dates = weekDates
+                }
 
                 // Create the stacked bar chart
                 chart = new Chart(ctx, {
@@ -253,11 +441,108 @@
                     }
                 });
             } else {
+
+                if (interval == "daily") {
+                    prepareDataWeekly(data)
+
+
+                    if (responseData) {
+                        responseData.map((item, index) => {
+                            const dateParts = item.tanggal.split(' '); // Split date and time
+                            const timePart = dateParts[1]; // Extract time part
+                            const formattedTime = `${timePart}:00:00`; // Format time as HH:00:00
+
+                            responseData[index] = {
+                                ...item,
+                                tanggal: formattedTime,
+                            }
+                        })
+
+                        hourDaily.forEach(date => {
+                            const found = responseData.find(item => item.tanggal === date);
+                            if (!found) {
+                                responseData.push({
+                                    tanggal: date,
+                                    total_total_cost: "0"
+                                });
+                            }
+                        });
+
+                    }
+
+                }
+
+                if (interval == "monthly") {
+                    prepareDataWeekly(data)
+
+                    if (responseData) {
+                        monthDates.forEach(date => {
+                            const found = responseData.find(item => item.tanggal === date);
+                            if (!found) {
+                                responseData.push({
+                                    tanggal: date,
+                                    total_total_cost: "0"
+                                });
+                            }
+                        });
+
+                    }
+                }
+
+                if (interval == "weekly") {
+                    prepareDataWeekly(data)
+
+                    const plugName = `tuya_smart_plug_${i}`;
+                    if (responseData) {
+                        weekDates.forEach(date => {
+                            const found = responseData.find(item => item.tanggal === date);
+                            if (!found) {
+                                responseData.push({
+                                    tanggal: date,
+                                    total_total_cost: "0"
+                                });
+                            }
+                        });
+
+                    }
+                }
+
+
+                if (interval == "yearly") {
+                    prepareDataWeekly(data)
+
+                    if (responseData) {
+                        responseData.map((item, index) => {
+                            for (let i = 1; i <= 12; i++) {
+                                const found = responseData.find(item => item.tanggal === i.toString());
+                                if (!found) {
+                                    responseData.push({
+                                        tanggal: i.toString(),
+                                        total_total_cost: "0"
+                                    });
+                                }
+                            }
+                        });
+
+                        responseData = responseData
+                            .map(item => {
+                                return {
+                                    tanggal: theMonths[parseInt(item.tanggal) - 1],
+                                    total_total_cost: item.total_total_cost
+                                };
+                            })
+                            .sort((a, b) => {
+                                return theMonths.indexOf(a.tanggal) - theMonths.indexOf(b.tanggal);
+                            });
+
+                    }
+                }
+
+
                 // Extract dates and total electricity values
                 var dates = responseData.map(function(entry) {
                     return entry.tanggal;
                 });
-
 
                 var totalElectricityValues = responseData.map(function(entry) {
                     if (entry.total_electricity) {
@@ -430,6 +715,12 @@
                         updateDetail(response.total_cost, response.total_electricity, response.total_carbon);
                     }
                 });
+
+                const submitButton = document.querySelector('.btn.btn-primary');
+                submitButton.style.backgroundColor = '';
+
+                const submitTooltip = document.querySelector('.submit-tooltip');
+                submitTooltip.style.opacity = 0;
             });
 
             var dataTable1 = [];
@@ -446,3 +737,5 @@
 
     <!-- test git raihan -->
 </body>
+
+</html>

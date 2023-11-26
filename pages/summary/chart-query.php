@@ -24,6 +24,8 @@ if ($interval === "custom") {
         $timeInterval = "YEARWEEK(time) = YEARWEEK(CURDATE())";
     } elseif ($interval === "monthly") {
         $timeInterval = "MONTH(time) = MONTH(CURDATE())";
+    } elseif ($interval === "yearly") {
+        $timeInterval = "YEAR(`time`) = YEAR(CURDATE())";
     } elseif ($interval === "last_year") {
         $timeInterval = "time >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)";
     }
@@ -36,6 +38,23 @@ try {
         FROM $utility
         WHERE $status IS NOT NULL AND $timeInterval
         GROUP BY DATE(time) ";
+
+        if ($interval === "daily") {
+            $query = "SELECT DATE_FORMAT(`time`, '%Y-%m-%d %H') AS tanggal, SUM(`$status`) AS total_$status 
+              FROM `$utility` 
+              WHERE DATE(`time`) = CURDATE() AND `$status` IS NOT NULL 
+              GROUP BY DATE_FORMAT(`time`, '%Y-%m-%d %H')";
+        } else if ($interval === "yearly") {
+            $query = "SELECT MONTH(`time`) AS tanggal, SUM(`$status`) AS `total_$status`
+            FROM `$utility`
+            WHERE $timeInterval
+            GROUP BY MONTH(`time`)";
+        } else {
+            $query = "SELECT DATE(time) AS tanggal, SUM($status) AS total_$status
+            FROM $utility
+            WHERE $timeInterval
+            GROUP BY DATE(time) ";
+        }
 
         // Execute the query
         $result = mysqli_query($connect, $query);
@@ -60,10 +79,24 @@ try {
         for ($i = 1; $i <= 8; $i++) {
             $tableName = "tuya_smart_plug_$i";
 
-            $query = "SELECT DATE(time) AS tanggal, SUM($status) AS total_$status
-              FROM $tableName
-              WHERE $timeInterval
-              GROUP BY DATE(time) ";
+            $query;
+
+            if ($interval === "daily") {
+                $query = "SELECT DATE_FORMAT(`time`, '%Y-%m-%d %H') AS tanggal, SUM(`$status`) AS total_$status 
+                          FROM `$tableName` 
+                          WHERE DATE(`time`) = CURDATE() AND `$status` IS NOT NULL 
+                          GROUP BY DATE_FORMAT(`time`, '%Y-%m-%d %H')";
+            } else if ($interval === "yearly") {
+                $query = "SELECT MONTH(`time`) AS tanggal, SUM(`$status`) AS `total_$status`
+                FROM `$tableName`
+                WHERE $timeInterval
+                GROUP BY MONTH(`time`)";
+            } else {
+                $query = "SELECT DATE(time) AS tanggal, SUM($status) AS total_$status
+                FROM $tableName
+                WHERE $timeInterval
+                GROUP BY DATE(time) ";
+            }
 
             $result = $connect->query($query);
 

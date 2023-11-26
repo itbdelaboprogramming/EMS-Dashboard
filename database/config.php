@@ -1,10 +1,17 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$pass = '';
+// $host = 'localhost';
+// $user = 'root';
+// $pass = '';
+// $database = 'monitoring';
+
+// Zerotier
+$host = '10.147.17.108';
+$user = 'admin';
+$pass = 'admin';
 $database = 'monitoring';
 
-// $host = '10.243.158.97';
+// lab connection
+// $host = '192.168.18.19';
 // $user = 'admin';
 // $pass = 'admin';
 // $database = 'monitoring';

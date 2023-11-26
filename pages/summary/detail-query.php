@@ -32,6 +32,8 @@ try {
             $timeInterval = "YEARWEEK(time) = YEARWEEK(CURDATE())";
         } elseif ($interval === "monthly") {
             $timeInterval = "MONTH(time) = MONTH(CURDATE())";
+        } elseif ($interval === "yearly") {
+            $timeInterval = "YEAR(`time`) = YEAR(CURDATE())";
         } elseif ($interval === "last_year") {
             $timeInterval = "time >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)";
         }

@@ -111,7 +111,7 @@ select {
     left: calc(55%);
 }
 
-.total-carbon-emission .tooltip{
+.total-carbon-emission .tooltip {
     left: calc(90%);
 }
 
@@ -122,3 +122,37 @@ select {
     /* top: 50%; */
     transform: translateY(-50%);
 }
+
+.submit-section{
+    display: flex;
+}
+
+.submit-tooltip {
+    position: relative !important;
+    /* top: 15%; */
+    /* z-index: 3; */
+    margin-left: 10px;
+    background: var(--secondary);
+    box-shadow: 0 5px 10px var(--secondary);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: 0s;
+    color: var(--primary) !important;
+}
+
+/* .submit-section:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+    transform: translateY(-50%);
+} */
+
+/* .submit-section .tooltip .active {
+    opacity: 1;
+    transition: all 0.4s ease;
+} */
