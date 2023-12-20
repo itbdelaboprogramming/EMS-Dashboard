@@ -145,6 +145,10 @@ select {
     color: var(--primary) !important;
 }
 
+.graph-section .chart{
+    overflow-x: scroll;
+}
+
 /* .submit-section:hover .tooltip {
     opacity: 1;
     pointer-events: auto;

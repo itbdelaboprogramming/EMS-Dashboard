@@ -76,19 +76,48 @@
         <br>
         <br>
         <br>
-        <div class="graph-section ">
+        <div class="graph-section">
+            <label for="chart-size">Chart Size:</label>
+            <select id="chart-size">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
             <div class="chart">
-                <div class="panel panel-primary" id="chartku" style="height:45vh; width:100%">
+                <div class="panel panel-primary" id="chartku" style="height: 45vh;">
                     <canvas id="myChart"></canvas>
                 </div>
             </div>
         </div>
+
     </div>
 
     <script>
         //Option Section
         document.getElementById('interval').addEventListener('change', handleSelectChange);
         document.getElementById('utility').addEventListener('change', handleSelectChange);
+
+        document.getElementById('chart-size').addEventListener('change', function() {
+            const chartSize = this.value;
+            const chartElement = document.getElementById('chartku');
+
+            switch (chartSize) {
+                case 'small':
+                    chartElement.style.width = '100%';
+                    break;
+                case 'medium':
+                    chartElement.style.width = '150%';
+                    break;
+                case 'large':
+                    chartElement.style.width = '900%';
+                    break;
+                default:
+                    break;
+            }
+
+            // If you need to re-render the chart to fit the new size, call the chart update function here
+            // For example: chart.update();
+        });
 
 
         function handleSelectChange() {
@@ -188,6 +217,7 @@
         ];
         let monthYearly = []
         let daysInMonth = 0
+        let datesOneYearAgo = [];
 
         function prepareDataWeekly(data) {
 
@@ -229,9 +259,25 @@
 
                 return monthDates;
             }
+
+            datesOneYearAgo = [];
+            if (interval == "last_year") {
+                // Get the date one year ago from today
+                let oneYearAgo = new Date();
+                let today = new Date();
+                oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+
+                // Loop to get all dates within the past year
+                while (oneYearAgo <= today) {
+                    datesOneYearAgo.push(oneYearAgo.toISOString().split('T')[0]);
+                    oneYearAgo.setDate(`${oneYearAgo.getDate() + 1}`);
+                }
+            }
+
         }
 
         function updateChart(data) {
+
             if (interval == "daily") {
                 prepareDataWeekly(data)
 
@@ -336,6 +382,34 @@
                 }
             }
 
+            if (interval == "last_year") {
+                prepareDataWeekly(data)
+
+                for (let i = 1; i <= 8; i++) {
+                    const plugName = `tuya_smart_plug_${i}`;
+                    if (data[0][plugName]) {
+                        datesOneYearAgo.forEach(date => {
+                            const found = data[0][plugName].find(item => item.tanggal === date);
+                            if (!found) {
+                                data[0][plugName].push({
+                                    tanggal: date,
+                                    total_total_cost: "0"
+                                });
+                            }
+                        });
+                    }
+                }
+
+                for (let i = 1; i <= 8; i++) {
+                    const plugName = `tuya_smart_plug_${i}`;
+                    if (data[0][plugName]) {
+                        data[0][plugName].sort((a, b) => new Date(a.tanggal) - new Date(b.tanggal));
+                    }
+                }
+                console.log("data[0][`tuya_smart_plug_1`] : ", data[0][`tuya_smart_plug_1`]);
+            }
+
+
             let responseData = data
 
             if (chart) {
@@ -395,6 +469,7 @@
                 if (interval == "weekly") {
                     dates = weekDates
                 }
+
 
                 // Create the stacked bar chart
                 chart = new Chart(ctx, {
@@ -543,6 +618,8 @@
                 var dates = responseData.map(function(entry) {
                     return entry.tanggal;
                 });
+
+                console.log("responseData", responseData);
 
                 var totalElectricityValues = responseData.map(function(entry) {
                     if (entry.total_electricity) {

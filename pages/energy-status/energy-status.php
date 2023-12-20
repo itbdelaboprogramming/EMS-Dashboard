@@ -519,6 +519,8 @@
                             type: 'GET',
                             success: function(data) {
                                 var response = JSON.parse(data);
+                                console.log("VVVV",response);
+                                // console.log("HHHH", response.STATUS_1);
                                 // Update the data
                                 UpdateStatus([response.STATUS_1, response.STATUS_2, response.STATUS_3, response.STATUS_4, response.STATUS_5, response.STATUS_6, response.STATUS_7, response.STATUS_8]);
                             }

@@ -31,6 +31,8 @@ if ($interval === "custom") {
     }
 }
 
+$oneYearAgo = date('Y-m-d', strtotime('-1 year'));
+
 try {
     if ($utility !== "all") {
         // Build the query
@@ -91,6 +93,8 @@ try {
                 FROM `$tableName`
                 WHERE $timeInterval
                 GROUP BY MONTH(`time`)";
+            } else if ($interval === "last_year") {
+                $query = "SELECT DATE(time) AS tanggal, SUM(`$status`) AS total_$status FROM $tableName WHERE DATE(time) >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR) GROUP BY DATE(time)";
             } else {
                 $query = "SELECT DATE(time) AS tanggal, SUM($status) AS total_$status
                 FROM $tableName

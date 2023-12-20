@@ -14,6 +14,11 @@ $statusArray = array();
 
 function statusChanger($id, $voltage, $current, $statusId)
 {
+    // echo "hhhhh" . $id;
+    // if ($id == 1) {
+    //     echo "hhhhh" . $id;
+    // }
+
     if ($id % 2 != 0) {
         if ($voltage > 0) {
             if ($current > 0) {
@@ -24,6 +29,8 @@ function statusChanger($id, $voltage, $current, $statusId)
         } else {
             return "Offline";
         }
+    } else {
+        return "Offline";
     }
 }
 
