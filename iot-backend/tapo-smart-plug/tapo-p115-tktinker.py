@@ -7,7 +7,7 @@ from tapo.requests import EnergyDataInterval
 
 # Tapo device credentials
 TAPO_USERNAME = "zakifajar96@gmail.com"
-TAPO_PASSWORD = "Tapoapp13315009!"
+TAPO_PASSWORD = "*********"
 IP_ADDRESS = "192.168.18.216"
 
 # Initialize the async Tapo API client
