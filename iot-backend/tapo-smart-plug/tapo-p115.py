@@ -5,7 +5,7 @@ from tapo.requests import EnergyDataInterval
 
 async def main():
     tapo_username = "zakifajar96@gmail.com"
-    tapo_password = "Tapoapp13315009!"
+    tapo_password = "************"
     ip_address = "192.168.18.216"
 
     client = ApiClient(tapo_username, tapo_password)
